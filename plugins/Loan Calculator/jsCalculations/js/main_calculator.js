@@ -9,12 +9,12 @@ var Loan = function Loan(amount, term) {
 var LoanCalculator = {
 
   calculatePayments: function (loan, interest) {
-    console.log(loan);
+    //console.log(loan);
     var discountFactor = this.getDiscountFactor(interest, loan.term)
     //can't divide by 0
     if (discountFactor != 0) {
       var result = loan.amount / discountFactor;
-      console.log(result);
+      //console.log(result);
       return result;
     } else {
       console.log("discount factor can't equal to 0!");
@@ -42,10 +42,34 @@ var LoanCalculator = {
 
 // client application - new instance of loan and calculations with diffrent interests
 
-loan = new Loan(150000, 12)
+//loan = new Loan(150000, 12)
 //minimumPaymentAmount = LoanCalculator.calculatePayments(loan, 0.12)
-maximumPaymentAmount = LoanCalculator.calculatePayments(loan, 0.42);
+//maximumPaymentAmount = LoanCalculator.calculatePayments(loan, 0.42);
 
+function onInputChange() {
+  console.log("slider-amount mouseup");
+  var amountValue = $("#slider-amount").slider("value");
+  var termValue = $("#slider-length").slider("value");
+  console.log(amountValue);
+  console.log(termValue);
+  loan = new Loan(amountValue, termValue);
+  minimumPaymentAmount = LoanCalculator.calculatePayments(loan, 0.0899)
+  maximumPaymentAmount = LoanCalculator.calculatePayments(loan, 0.2999);
+  console.log("minimum payment amount is " + minimumPaymentAmount);
+  console.log("maximum payment amount is " + maximumPaymentAmount);
+}
 
+$("#slider-amount").mouseup(onInputChange);
+  // console.log("slider-amount mouseup");
+  // var amountValue = $("#slider-amount").slider("value");
+  // var termValue = $("#slider-length").slider("value");
+  // console.log(amountValue);
+  // console.log(termValue);
+  // loan = new Loan(amountValue, termValue);
+  // minimumPaymentAmount = LoanCalculator.calculatePayments(loan, 0.0899)
+  // maximumPaymentAmount = LoanCalculator.calculatePayments(loan, 0.2999);
+  // console.log("minimum payment amount is " + minimumPaymentAmount);
+  // console.log("maximum payment amount is " + maximumPaymentAmount);
+// });
 
-
+$("#slider-length").mouseup(onInputChange);
