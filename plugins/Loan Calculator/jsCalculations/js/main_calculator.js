@@ -19,6 +19,13 @@ var LoanCalculator = {
       return NaN
     }
   },
+  calculateInterestCost: function (loan, interest) {
+    var biweeklyPayment = this.calculatePayments(loan, interest);
+    var interestCost = biweeklyPayment * 26 *(loan.term/12) - loan.amount;
+    return interestCost;
+
+  },
+
   // private function
   getDiscountFactor: function (interest, term) {
     var i = interest/26;
@@ -33,10 +40,6 @@ var LoanCalculator = {
 
 // client application - new instance of loan and calculations with diffrent interests
 
-//loan = new Loan(150000, 12)
-//minimumPaymentAmount = LoanCalculator.calculatePayments(loan, 0.12)
-//maximumPaymentAmount = LoanCalculator.calculatePayments(loan, 0.42);
-
 function recalculate() {
   var amountValue = $("#slider-amount").slider("value");
   var termValue = $("#slider-length").slider("value");
@@ -50,14 +53,24 @@ function getPaymentInformation(amountValue, termValue) {
   var paymentInformation = {};
 
   var loan = new Loan(amountValue, termValue);
-  paymentInformation.minimumPaymentAmount = LoanCalculator.calculatePayments(loan, 0.0899)
+  console.log(loan);
+  paymentInformation.minimumPaymentAmount = LoanCalculator.calculatePayments(loan, 0.0899);
   paymentInformation.maximumPaymentAmount = LoanCalculator.calculatePayments(loan, 0.2999);
+  //interest cost calculations
+  paymentInformation.lendifiedInterestCost = LoanCalculator.calculateInterestCost(loan, 0.2);
+  paymentInformation.onlineLenderInterestCost = LoanCalculator.calculateInterestCost(loan, 0.3);
+  paymentInformation.merchantAdvenceInterestCost = LoanCalculator.calculateInterestCost(loan, 0.45);
+  paymentInformation.interestSavings = paymentInformation.merchantAdvenceInterestCost - paymentInformation.lendifiedInterestCost;
+  
   paymentInformation.inspect = function() {
     console.log(this.minimumPaymentAmount);
     console.log(this.maximumPaymentAmount);
+    console.log(this.lendifiedInterestCost);
+    console.log(this.onlineLenderInterestCost);
+    console.log(this.merchantAdvenceInterestCost);
+    console.log(this.interestSavings);
 
   }
-  //add other calculations as properties
 
   return paymentInformation;
 }
@@ -70,10 +83,11 @@ function displayPaymentInformation(paymentInformation) {
   maximumaymentContainer.innerHTML = Math.round(paymentInformation.maximumPaymentAmount);
 }
 
-
 $(document).ready(recalculate);
 $("#slider-amount").mouseup(recalculate);
 $("#slider-length").mouseup(recalculate);
 
+competitor_one_interest
+comp_one_interest
 
 
