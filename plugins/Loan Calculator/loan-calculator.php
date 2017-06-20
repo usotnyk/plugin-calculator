@@ -107,6 +107,4 @@ function generate_shortcode(){
 	require_once('includes/loan-calculator-public.php');
 }
 add_shortcode('loan-calculator', 'generate_shortcode');
-
-
 ?>
