@@ -107,6 +107,11 @@ function generate_shortcode(){
 	require_once('includes/loan-calculator-public.php');
 }
 add_shortcode('loan-calculator', 'generate_shortcode');
+<<<<<<< HEAD
+?>
+=======
 
+require 'includes/enqueue.php';
 
 ?>
+>>>>>>> e75474a10a744ef54c31cc1f24c5966f729e4fe0

@@ -18,7 +18,7 @@ input{
   display: flex;
   align-items: center;
 }
-.space-between { 
+.space-between {
   justify-content: space-between;
 }
 .flex-col {
@@ -42,12 +42,12 @@ input{
   top: -.6em;
 }
 #amount {
-  border:0; 
-  color:#494949; 
+  border:0;
+  color:#494949;
 }
 #length {
-  border:0; 
-  color:#494949; 
+  border:0;
+  color:#494949;
 }
 .ui-slider .ui-slider-handle {
   border-radius: 50%;
@@ -63,7 +63,7 @@ input{
 }
 
 .ui-state-active, .ui-widget-content .ui-state-active, .ui-state-focus {
-  background-color:#f2f2f2;
+  background-color: red;
   outline: none;
 }
 
