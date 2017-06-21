@@ -1,0 +1,99 @@
+* {box-sizing: border-box;
+   padding: 0;
+   margin: 0;}
+
+
+          /*FLEX*/
+.flex {display: flex;}
+.dir-col {flex-direction: column;}
+.dir-row {flex-direction: row;}
+.just-cont-cent {justify-content: center;}
+.align-item-cent {align-items: center;}
+
+        /*COMMEN STYLE*/
+.padding-bottom-10px {padding-bottom: 10px;}
+.padding-10 {padding: 10px;}
+
+.margin-5 {margin: 8%;}
+.margin-bottom-50 {margin-bottom: 50px;}
+
+.width-50 {width: 70%}
+
+.text-center {text-align: center;}
+.font-size-2 {font-size: 2em;}
+.font-size {font-size: 1.2em;}
+.text-green {color: #DDDA7C}
+
+    /*OVER WRITTING DEFAULT STYLE*/
+
+.ui-state-default, .ui-widget-content .ui-state-default {
+  border: 2px solid #DDDA7C;
+  background: #f6f6f6;
+  font-weight: normal;
+  color: #454545;}
+
+.ui-corner-all {border-radius: 100px;}
+
+.ui-slider-horizontal {height: .2em;}
+
+.ui-slider-horizontal .ui-slider-handle {
+  top: -.6em;
+  margin-left: -.6em;
+  left: 0.5%}
+
+.ui-widget.ui-widget-content {
+  background-color: #D6D6D6;
+  width: 100%;}
+
+.ui-slider .ui-slider-range{
+  border: none;
+  background-color: #b8c647;}
+
+label {display: block;
+       text-align: center;
+       border:0;
+       color:#494949;
+       margin-bottom: 5px;}
+
+h3 {margin-bottom: 5px;
+    color: #494949;
+    text-align: center;
+    font-size: 1.3em;}
+
+p {margin: 5px;
+   text-align: center;
+   font-size: 2em;}
+
+a {display: inline-block;
+  text-align: center;}
+
+input {border: none;
+       font-size: 1.5em;
+       margin-bottom: 10px;
+       text-align: center;
+       font-weight: 600;
+       width: 100%}
+
+.button {padding: 10px;
+        border: none;
+        background-color: #DDDA7C;
+        color: white;
+        width: 100%;
+        text-decoration: none;}
+
+img {height: 250px;
+     width: 250px;
+     margin: auto;}
+
+
+@media screen and (min-device-width: 600px){
+.flex-media {display: flex;}
+.dir-col-media {flex-direction: column;}
+.dir-row-media {flex-direction: row;}
+.just-cont-cent-media {justify-content: center;}
+.just-cont-btw-media {justify-content: space-between;}
+.width-60-media {width: 60%;}
+.width-40-media {width: 30%;}
+.margin-right-media {margin-right: 10px;}
+.margin-5-media {margin: 5%;}
+}

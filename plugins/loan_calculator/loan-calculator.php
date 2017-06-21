@@ -85,7 +85,7 @@ function loan_calculator_menu(){
         'dashicons-chart-bar',
         99
     );
-      	
+
     require_once('includes/loan-calculator-settings.php');
     //add_action('admin_init', 'loan_calculator_settings');
 }
@@ -108,5 +108,6 @@ function generate_shortcode(){
 }
 add_shortcode('loan-calculator', 'generate_shortcode');
 
+require 'includes/enqueue.php';
 
 ?>
