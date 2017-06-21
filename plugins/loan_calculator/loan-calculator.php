@@ -108,5 +108,6 @@ function generate_shortcode(){
 }
 add_shortcode('loan-calculator', 'generate_shortcode');
 
+require 'includes/enqueue.php';
 
 ?>
