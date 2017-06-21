@@ -27,17 +27,17 @@ function loan_calculator_settings() {
 
 	add_settings_field(
 		'loan-amount-min',
-		'Loan Amount Min', 
-		'amount_range_min', 
-		'loan_amount_options', 
+		'Loan Amount Min',
+		'amount_range_min',
+		'loan_amount_options',
 		'loan-amount-options'
 	);
 
 	add_settings_field(
 		'loan-amount-max',
-		'Loan Amount Max', 
-		'amount_range_max', 
-		'loan_amount_options', 
+		'Loan Amount Max',
+		'amount_range_max',
+		'loan_amount_options',
 		'loan-amount-options'
 	);
 
@@ -52,17 +52,17 @@ function loan_calculator_settings() {
 
 	add_settings_field(
 		'loan-length-min',
-		'Loan Length Min', 
-		'length_range_min', 
-		'loan_length_options', 
+		'Loan Length Min',
+		'length_range_min',
+		'loan_length_options',
 		'loan-length-options'
 	);
 
 	add_settings_field(
 		'loan-length-max',
-		'Loan Length Max', 
-		'length_range_max', 
-		'loan_length_options', 
+		'Loan Length Max',
+		'length_range_max',
+		'loan_length_options',
 		'loan-length-options'
 	);
 
@@ -78,41 +78,41 @@ function loan_calculator_settings() {
 
 	add_settings_field(
 		'interest-rate-min',
-		'Rate Min', 
-		'interest_rate_min', 
-		'interest_rates', 
+		'Rate Min',
+		'interest_rate_min',
+		'interest_rates',
 		'interest-rates'
 	);
 
 	add_settings_field(
 		'interest-rate-max',
-		'Rate Max', 
-		'interest_rate_max', 
-		'interest_rates', 
+		'Rate Max',
+		'interest_rate_max',
+		'interest_rates',
 		'interest-rates'
 	);
 
 	add_settings_field(
 		'lendified-interest',
-		'Lendified Rate', 
-		'lendified_interest', 
-		'interest_rates', 
+		'Lendified Rate',
+		'lendified_interest',
+		'interest_rates',
 		'interest-rates'
 	);
 
 	add_settings_field(
 		'competitor-interest',
-		'Competitor Rate', 
-		'competitor_interest', 
-		'interest_rates', 
+		'Competitor Rate',
+		'competitor_interest',
+		'interest_rates',
 		'interest-rates'
 	);
 
 	add_settings_field(
 		'merchant-advance-interest',
-		'MA Rate', 
-		'merchant_advance_interest', 
-		'interest_rates', 
+		'MA Rate',
+		'merchant_advance_interest',
+		'interest_rates',
 		'interest-rates'
 	);
 
@@ -127,20 +127,20 @@ function loan_calculator_settings() {
 
 	add_settings_field(
 		'pop-up-1',
-		'Pop-Up 1 Content', 
-		'pop_up_1_content', 
-		'pop_up_content', 
+		'Pop-Up 1 Content',
+		'pop_up_1_content',
+		'pop_up_content',
 		'pop-up-content'
 	);
 
 	add_settings_field(
 		'pop-up-2',
-		'Pop-Up 2 Content', 
-		'pop_up_2_content', 
-		'pop_up_content', 
+		'Pop-Up 2 Content',
+		'pop_up_2_content',
+		'pop_up_content',
 		'pop-up-content'
 	);
-} 
+}
 // Loan amount functions
 function loan_amount_description() {
 	echo "Enter your loan amount range here.";
