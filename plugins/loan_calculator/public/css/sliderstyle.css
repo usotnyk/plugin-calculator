@@ -14,7 +14,7 @@
 .padding-bottom-10px {padding-bottom: 10px;}
 .padding-10 {padding: 10px;}
 
-.margin-5 {margin: 8%;}
+.margin-8 {margin: 8%;}
 .margin-bottom-50 {margin-bottom: 50px;}
 
 .width-50 {width: 70%}
@@ -22,66 +22,68 @@
 .text-center {text-align: center;}
 .font-size-2 {font-size: 2em;}
 .font-size {font-size: 1.2em;}
-.text-green {color: #DDDA7C}
+.cal-plugin .text-green {color: #DDDA7C}
 
     /*OVER WRITTING DEFAULT STYLE*/
+.cal-plugin .ui-state-default, .ui-widget-content .ui-state-default {border: 2px solid #DDDA7C;
+                   background: #f6f6f6;
+                   font-weight: normal;
+                   color: #454545;}
 
-.ui-state-default, .ui-widget-content .ui-state-default {
-  border: 2px solid #DDDA7C;
-  background: #f6f6f6;
-  font-weight: normal;
-  color: #454545;}
+.cal-plugin  .ui-corner-all {border-radius: 100px;}
 
-.ui-corner-all {border-radius: 100px;}
+.cal-plugin .ui-slider-horizontal {height: .3em;}
 
-.ui-slider-horizontal {height: .2em;}
-
-.ui-slider-horizontal .ui-slider-handle {
-  top: -.6em;
+.cal-plugin  .ui-slider-horizontal .ui-slider-handle {
+  top: -.5em;
   margin-left: -.6em;
   left: 0.5%}
 
-.ui-widget.ui-widget-content {
+.cal-plugin  .ui-widget.ui-widget-content {
   background-color: #D6D6D6;
   width: 100%;}
 
-.ui-slider .ui-slider-range{
+.cal-plugin .ui-slider .ui-slider-range{
   border: none;
-  background-color: #b8c647;}
+  background-color: #DDDA7C;}
 
-label {display: block;
-       text-align: center;
-       border:0;
-       color:#494949;
-       margin-bottom: 5px;}
+.cal-plugin  label {display: block;
+                    text-align: center;
+                    border:0;
+                    color:#494949;
+                    margin-bottom: 5px;}
 
-h3 {margin-bottom: 5px;
-    color: #494949;
-    text-align: center;
-    font-size: 1.3em;}
+.cal-plugin  h3 {margin-bottom: 5px;
+                 color: #494949;
+                 text-align: center;
+                 font-size: 1.3em;}
 
-p {margin: 5px;
-   text-align: center;
-   font-size: 2em;}
+.cal-plugin  p {margin: 5px;
+                text-align: center;
+                font-size: 2em;}
 
-a {display: inline-block;
-  text-align: center;}
+.cal-plugin  a {display: inline-block;
+                text-align: center;}
 
-input {border: none;
+.cal-plugin  input {border: none;
        font-size: 1.5em;
        margin-bottom: 10px;
        text-align: center;
        font-weight: 600;
        width: 100%}
 
-.button {padding: 10px;
+.cal-plugin input[type="text"] {border: none;}
+
+.cal-plugin h3 {padding: 0em;}
+
+.cal-plugin  .button {padding: 10px;
         border: none;
         background-color: #DDDA7C;
         color: white;
         width: 100%;
         text-decoration: none;}
 
-img {height: 250px;
+.cal-plugin  img {height: 250px;
      width: 250px;
      margin: auto;}
 
