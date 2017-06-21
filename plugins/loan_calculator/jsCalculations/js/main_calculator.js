@@ -87,7 +87,5 @@ $(document).ready(recalculate);
 $("#slider-amount").mouseup(recalculate);
 $("#slider-length").mouseup(recalculate);
 
-competitor_one_interest
-comp_one_interest
 
 
