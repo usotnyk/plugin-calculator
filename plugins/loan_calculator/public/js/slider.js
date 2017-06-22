@@ -1,5 +1,5 @@
 jQuery(document).ready(function($) {
-  $("#slider").slider({
+  $("#amount-slider").slider({
     range: "min",
     value: 5000,
     min: 5000,
@@ -9,7 +9,7 @@ jQuery(document).ready(function($) {
       $("#amount").val("$ " + ui.value);
     }
   });
-  $("#amount").val("$" + $("#slider").slider("value"));
+  $("#amount").val("$" + $("#amount-slider").slider("value"));
 
   $("#term-slider").slider({
     range: "min",
