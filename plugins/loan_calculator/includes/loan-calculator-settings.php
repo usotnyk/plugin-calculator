@@ -4,212 +4,166 @@ add_action('admin_init', 'loan_calculator_settings');
 
 function loan_calculator_settings() {
 
+	// Settings for loan amount
 	register_setting( 'loan-calculator-settings-group', 'loan_amount_min');
 	register_setting( 'loan-calculator-settings-group', 'loan_amount_max');
-	register_setting( 'loan-calculator-settings-group', 'loan_length_min');
-	register_setting( 'loan-calculator-settings-group', 'loan_length_max');
+
+	// Settings for term length
+	register_setting( 'loan-calculator-settings-group', 'loan_term_min');
+	register_setting( 'loan-calculator-settings-group', 'loan_term_max');
+
+	// Settings for interest rates
+
 	register_setting( 'loan-calculator-settings-group', 'bwp_interest_min');
 	register_setting( 'loan-calculator-settings-group', 'bwp_interest_max');
 	register_setting( 'loan-calculator-settings-group', 'lendified_interest');
 	register_setting( 'loan-calculator-settings-group', 'competitor_one_interest');
 	register_setting( 'loan-calculator-settings-group', 'competitor_two_interest');
-	register_setting( 'loan-calculator-settings-group', 'pop_up_1');
-	register_setting( 'loan-calculator-settings-group', 'pop_up_2');
+	register_setting( 'loan-calculator-settings-group', 'bar_1_label');
+	register_setting( 'loan-calculator-settings-group', 'bar_2_label');
+	register_setting( 'loan-calculator-settings-group', 'bar_3_label');
+
+	// Settings for pop-ups
+	register_setting( 'loan-calculator-settings-group', 'payment_popup');
+	register_setting( 'loan-calculator-settings-group', 'chart_popup');
+
+	// Settings for labels
+	register_setting( 'loan-calculator-settings-group', 'amount_label');
+	register_setting( 'loan-calculator-settings-group', 'term-label');
+	register_setting( 'loan-calculator-settings-group', 'payment-label');
+	register_setting( 'loan-calculator-settings-group', 'button label');
+	register_setting( 'loan-calculator-settings-group', 'chart-heading');
+	register_setting( 'loan-calculator-settings-group', 'chart-label');
 
 	// Loan amount settings section
-
 	add_settings_section(
 		'loan-amount-options',
 		'Loan Amount Range',
-		'loan_amount_description',
-		'loan_amount_options'
-	);
-
-	add_settings_field(
-		'loan-amount-min',
-		'Loan Amount Min',
-		'amount_range_min',
-		'loan_amount_options',
-		'loan-amount-options'
-	);
-
-	add_settings_field(
-		'loan-amount-max',
-		'Loan Amount Max',
-		'amount_range_max',
-		'loan_amount_options',
-		'loan-amount-options'
+		'loan_amount_content',
+		'loan_amounts'
 	);
 
 	// Loan length settings section
-
 	add_settings_section(
-		'loan-length-options',
-		'Loan Length Range',
-		'loan_length_description',
-		'loan_length_options'
+		'loan-term-options',
+		'Loan Term Range',
+		'loan_terms_content',
+		'loan_terms'
 	);
-
-	add_settings_field(
-		'loan-length-min',
-		'Loan Length Min',
-		'length_range_min',
-		'loan_length_options',
-		'loan-length-options'
-	);
-
-	add_settings_field(
-		'loan-length-max',
-		'Loan Length Max',
-		'length_range_max',
-		'loan_length_options',
-		'loan-length-options'
-	);
-
 
 	// Interest Rates Section
-
 	add_settings_section(
 		'interest-rates',
 		'Interest Rates',
-		'interest_description',
+		'interest_content',
 		'interest_rates'
 	);
 
-	add_settings_field(
-		'interest-rate-min',
-		'Rate Min',
-		'interest_rate_min',
-		'interest_rates',
-		'interest-rates'
-	);
-
-	add_settings_field(
-		'interest-rate-max',
-		'Rate Max',
-		'interest_rate_max',
-		'interest_rates',
-		'interest-rates'
-	);
-
-	add_settings_field(
-		'lendified-interest',
-		'Lendified Rate',
-		'lendified_interest',
-		'interest_rates',
-		'interest-rates'
-	);
-
-	add_settings_field(
-		'competitor-interest',
-		'Competitor Rate',
-		'competitor_interest',
-		'interest_rates',
-		'interest-rates'
-	);
-
-	add_settings_field(
-		'merchant-advance-interest',
-		'MA Rate',
-		'merchant_advance_interest',
-		'interest_rates',
-		'interest-rates'
-	);
-
 	// Pop-up settings
-
 	add_settings_section(
 		'pop-up-content',
-		'Pop-Up Content',
-		'pop_up_description',
-		'pop_up_content'
+		'Pop-Ups',
+		'pop_up_content',
+		'pop_ups'
 	);
 
-	add_settings_field(
-		'pop-up-1',
-		'Pop-Up 1 Content',
-		'pop_up_1_content',
-		'pop_up_content',
-		'pop-up-content'
+	add_settings_section(
+		'labels',
+		'Labels',
+		'labels',
+		'labels'
 	);
 
-	add_settings_field(
-		'pop-up-2',
-		'Pop-Up 2 Content',
-		'pop_up_2_content',
-		'pop_up_content',
-		'pop-up-content'
-	);
-}
-// Loan amount functions
-function loan_amount_description() {
-	echo "Enter your loan amount range here.";
 }
 
-function amount_range_min() {
+// Loan Amount HTML function
+function loan_amount_content() {
+	echo "<p>Enter your loan amount range here.</p>";
+
 	$loan_amount_min = esc_attr( get_option('loan_amount_min') );
 	echo "$ <input type='number' name='loan_amount_min' value='".$loan_amount_min."'/>";
-}
-function amount_range_max() {
+
 	$loan_amount_max = esc_attr( get_option('loan_amount_max') );
 	echo "$ <input type='number' name='loan_amount_max' value='".$loan_amount_max."'/>";
 }
 
-// Loan length/term options
-function loan_length_description() {
-	echo "Enter your loan length range here. (Months)";
+// Loan term HTML function
+function loan_terms_content() {
+	echo "<p>Enter your loan term range here.</p>";
+  
+	$loan_term_min = esc_attr( get_option('loan_term_min') );
+	echo "<input type='number' class='term-input' name='loan_term_min' value='".$loan_term_min."'/> months";
+
+	$loan_term_max = esc_attr( get_option('loan_term_max') );
+	echo "<input type='number' class='term-input'  name='loan_term_max' value='".$loan_term_max."'/> months";
 }
 
-function length_range_min() {
-	$loan_length_min = esc_attr( get_option('loan_length_min') );
-	echo "<input type='number' class='term-input' name='loan_length_min' value='".$loan_length_min."'/>";
-}
-function length_range_max() {
-	$loan_length_max = esc_attr( get_option('loan_length_max') );
-	echo "<input type='number' class='term-input'  name='loan_length_max' value='".$loan_length_max."'/>";
-}
+// Loan interest HTML function
+function interest_content() {
 
-// loan interest functions
-function interest_description() {
-	echo "Enter your interest rates here.";
-}
+	echo "<p>Bi-Weekly Payment Calculation</p>";
 
-function interest_rate_min() {
 	$interest_rate_min = esc_attr( get_option('bwp_interest_min') );
-	echo "<input type='number' name='bwp_interest_min' value='".$interest_rate_min."'/> %";
-}
-function interest_rate_max() {
+	echo "<input type='number' step='any' name='bwp_interest_min' value='".$interest_rate_min."'/> %";
+
 	$interest_rate_max = esc_attr( get_option('bwp_interest_max') );
-	echo "<input type='number' name='bwp_interest_max' value='".$interest_rate_max."'/> %";
-}
+	echo "<input type='number' step='any' name='bwp_interest_max' value='".$interest_rate_max."'/> %";
 
-function lendified_interest() {
+	echo "<p>Chart Calculation</p>";
+
+	$bar_1_label = esc_attr( get_option('bar_1_label') );
+	echo "<input type='text' name='bar_1_label' value='".$bar_1_label."'/> %";
+
 	$lendified_interest = esc_attr( get_option('lendified_interest') );
-	echo "<input type='number' name='lendified_interest' value='".$lendified_interest."'/> %";
-}
-function competitor_interest() {
+	echo "<input type='number' step='any' name='lendified_interest' value='".$lendified_interest."'/> %";
+
+	$bar_2_label = esc_attr( get_option('bar_2_label') );
+	echo "<input type='text' name='bar_2_label' value='".$bar_2_label."'/> %";
+
 	$competitor_one_interest = esc_attr( get_option('competitor_one_interest') );
-	echo "<input type='number' name='competitor_one_interest' value='".$competitor_one_interest."'/> %";
-}
+	echo "<input type='number' step='any' name='competitor_one_interest' value='".$competitor_one_interest."'/> %";
 
-function merchant_advance_interest() {
+	$bar_3_label = esc_attr( get_option('bar_3_label') );
+	echo "<input type='text' name='bar_3_label' value='".$bar_3_label."'/> %";
+
 	$competitor_two_interest = esc_attr( get_option('competitor_two_interest') );
-	echo "<input type='number' name='competitor_two_interest' value='".$competitor_two_interest."'/> %";
+	echo "<input type='number' step='any' name='competitor_two_interest' value='".$competitor_two_interest."'/> %";
 }
 
-// Pop-up functions
-function pop_up_description() {
-	echo "Enter your pop-up content here.";
-}
+// Pop-up HTML function
+function pop_up_content() {
 
-function pop_up_1_content() {
-	$pop_up_1_content = esc_attr( get_option('pop_up_1') );
-	echo "<textarea name='pop_up_1' rows='4' cols='50'>".$pop_up_1_content."</textarea>";
-}
-function pop_up_2_content() {
+	echo "<p>Payment Pop-Up Content</p>";
+	$pop_up_1_content = esc_attr( get_option('payment_popup') );
+	echo "<textarea name='payment_popup' rows='4' cols='50'>".$pop_up_1_content."</textarea>";
+
+	echo "<p>Chart Pop-Up Content</p>";
 	$pop_up_2_content = esc_attr( get_option('pop_up_2') );
-	echo "<textarea name='pop_up_2' rows='4' cols='50'>".$pop_up_2_content."</textarea>";
+	echo "<textarea name='payment' rows='4' cols='50'>".$pop_up_2_content."</textarea>";
 }
 
-get_option('loan-term-length');
+// Label HTML function
+function labels() {
+
+	echo "<p>Enter your labels here.</p>";
+	$amount_label = esc_attr( get_option('amount_label') );
+	echo "<textarea name='amount_label' rows='4' cols='50'>".$amount_label."</textarea>";
+
+	$term_label = esc_attr( get_option('term_label') );
+	echo "<textarea name='term_label' rows='4' cols='50'>".$term_label."</textarea>";
+
+	$payment_label = esc_attr( get_option('payment_label') );
+	echo "<textarea name='payment_label' rows='4' cols='50'>".$payment_label."</textarea>";
+
+	$button_label = esc_attr( get_option('button_label') );
+	echo "<textarea name='button_label' rows='4' cols='50'>".$button_label."</textarea>";
+
+	$chart_heading = esc_attr( get_option('chart_heading') );
+	echo "<input type='text' name='chart_heading'>".$chart_heading;
+
+	$chart_label = esc_attr( get_option('chart_label') );
+	echo "<textarea name='chart_label' rows='4' cols='50'>".$chart_label."</textarea>";
+}
+
+
 ?>

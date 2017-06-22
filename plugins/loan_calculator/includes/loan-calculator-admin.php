@@ -3,18 +3,21 @@
     <?php settings_errors(); ?>
     <form action="options.php" method="post">
         <?php 
-        	settings_fields('loan-calculator-settings-group'); 
+        	settings_fields('loan-calculator-settings-group');
         	echo "<div class='settings-group'>";
-        	do_settings_sections('loan_amount_options');
+        	do_settings_sections('loan_amounts');
         	echo "</div>";
             echo "<div class='settings-group'>";
-        	do_settings_sections('loan_length_options');
+        	do_settings_sections('loan_terms');
             echo "</div>";
             echo "<div class='settings-group'>";
             do_settings_sections('interest_rates');
             echo "</div>";
             echo "<div class='settings-group'>";
-            do_settings_sections('pop_up_content');
+            do_settings_sections('pop_ups');
+            echo "</div>";
+            echo "<div class='settings-group'>";
+            do_settings_sections('labels');
             echo "</div>";
         	submit_button('Save Settings');
         ?>
