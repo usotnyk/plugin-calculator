@@ -13,6 +13,7 @@ function loan_calculator_settings() {
 	register_setting( 'loan-calculator-settings-group', 'loan_term_max');
 
 	// Settings for interest rates
+
 	register_setting( 'loan-calculator-settings-group', 'bwp_interest_min');
 	register_setting( 'loan-calculator-settings-group', 'bwp_interest_max');
 	register_setting( 'loan-calculator-settings-group', 'lendified_interest');
@@ -89,7 +90,7 @@ function loan_amount_content() {
 // Loan term HTML function
 function loan_terms_content() {
 	echo "<p>Enter your loan term range here.</p>";
-
+  
 	$loan_term_min = esc_attr( get_option('loan_term_min') );
 	echo "<input type='number' class='term-input' name='loan_term_min' value='".$loan_term_min."'/> months";
 
