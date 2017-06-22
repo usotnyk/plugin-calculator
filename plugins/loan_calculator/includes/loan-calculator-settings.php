@@ -6,8 +6,8 @@ function loan_calculator_settings() {
 
 	register_setting( 'loan-calculator-settings-group', 'loan_amount_min');
 	register_setting( 'loan-calculator-settings-group', 'loan_amount_max');
-	register_setting( 'loan-calculator-settings-group', 'loan_length_min');
-	register_setting( 'loan-calculator-settings-group', 'loan_length_max');
+	register_setting( 'loan-calculator-settings-group', 'loan_term_min');
+	register_setting( 'loan-calculator-settings-group', 'loan_term_max');
 	register_setting( 'loan-calculator-settings-group', 'bwp_interest_min');
 	register_setting( 'loan-calculator-settings-group', 'bwp_interest_max');
 	register_setting( 'loan-calculator-settings-group', 'lendified_interest');
@@ -161,12 +161,12 @@ function loan_length_description() {
 }
 
 function length_range_min() {
-	$loan_length_min = esc_attr( get_option('loan_length_min') );
-	echo "<input type='number' class='term-input' name='loan_length_min' value='".$loan_length_min."'/>";
+	$loan_term_min = esc_attr( get_option('loan_term_min') );
+	echo "<input type='number' class='term-input' name='loan_term_min' value='".$loan_term_min."'/>";
 }
 function length_range_max() {
-	$loan_length_max = esc_attr( get_option('loan_length_max') );
-	echo "<input type='number' class='term-input'  name='loan_length_max' value='".$loan_length_max."'/>";
+	$loan_term_max = esc_attr( get_option('loan_term_max') );
+	echo "<input type='number' class='term-input'  name='loan_term_max' value='".$loan_term_max."'/>";
 }
 
 // loan interest functions
