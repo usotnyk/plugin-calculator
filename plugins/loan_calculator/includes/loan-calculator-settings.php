@@ -7,13 +7,17 @@ function loan_calculator_settings() {
 	// Settings for loan amount
 	register_setting( 'loan-calculator-settings-group', 'loan_amount_min');
 	register_setting( 'loan-calculator-settings-group', 'loan_amount_max');
+	register_setting( 'loan-calculator-settings-group', 'loan_amount_step');
+	register_setting( 'loan-calculator-settings-group', 'loan_amount_default');
 
 	// Settings for term length
 	register_setting( 'loan-calculator-settings-group', 'loan_term_min');
 	register_setting( 'loan-calculator-settings-group', 'loan_term_max');
+	register_setting( 'loan-calculator-settings-group', 'loan_term_step');
+	register_setting( 'loan-calculator-settings-group', 'loan_term_default');
+
 
 	// Settings for interest rates
-
 	register_setting( 'loan-calculator-settings-group', 'bwp_interest_min');
 	register_setting( 'loan-calculator-settings-group', 'bwp_interest_max');
 	register_setting( 'loan-calculator-settings-group', 'lendified_interest');
@@ -29,11 +33,11 @@ function loan_calculator_settings() {
 
 	// Settings for labels
 	register_setting( 'loan-calculator-settings-group', 'amount_label');
-	register_setting( 'loan-calculator-settings-group', 'term-label');
-	register_setting( 'loan-calculator-settings-group', 'payment-label');
-	register_setting( 'loan-calculator-settings-group', 'button label');
-	register_setting( 'loan-calculator-settings-group', 'chart-heading');
-	register_setting( 'loan-calculator-settings-group', 'chart-label');
+	register_setting( 'loan-calculator-settings-group', 'term_label');
+	register_setting( 'loan-calculator-settings-group', 'payment_label');
+	register_setting( 'loan-calculator-settings-group', 'button_label');
+	register_setting( 'loan-calculator-settings-group', 'chart_heading');
+	register_setting( 'loan-calculator-settings-group', 'chart_label');
 
 	// Loan amount settings section
 	add_settings_section(
@@ -81,10 +85,29 @@ function loan_amount_content() {
 	echo "<p>Enter your loan amount range here.</p>";
 
 	$loan_amount_min = esc_attr( get_option('loan_amount_min') );
-	echo "$ <input type='number' name='loan_amount_min' value='".$loan_amount_min."'/>";
+	echo "<div class='flex flex-align-center flex-space-between'>";
+	echo "<label for='loan_amount_min'>Min</label>";
+	echo "<input type='number' name='loan_amount_min' value='".$loan_amount_min."'/>";
+	echo "</div>";
 
 	$loan_amount_max = esc_attr( get_option('loan_amount_max') );
-	echo "$ <input type='number' name='loan_amount_max' value='".$loan_amount_max."'/>";
+	echo "<div class='flex flex-align-center flex-space-between'>";
+	echo "<label for='loan_amount_max'>Max</label>";
+	echo "<input type='number' name='loan_amount_max' value='".$loan_amount_max."'/>";
+	echo "</div>";
+
+	$loan_amount_step = esc_attr( get_option('loan_amount_step') );
+	echo "<div class='flex flex-align-center flex-space-between'>";
+	echo "<label for='loan_amount_step'>Step</label>";
+	echo "<input type='number' name='loan_amount_step' value='".$loan_amount_step."'/>";
+	echo "</div>";
+
+	$loan_amount_default = esc_attr( get_option('loan_amount_default') );
+	echo "<div class='flex flex-align-center flex-space-between'>";
+	echo "<label for='loan_amount_default'>Default</label>";
+	echo "<input type='number' name='loan_amount_default' value='".$loan_amount_default."'/>";
+	echo "</div>";
+
 }
 
 // Loan term HTML function
@@ -92,10 +115,17 @@ function loan_terms_content() {
 	echo "<p>Enter your loan term range here.</p>";
   
 	$loan_term_min = esc_attr( get_option('loan_term_min') );
+	echo "<label for='loan_term_min'>Min</label>";
 	echo "<input type='number' class='term-input' name='loan_term_min' value='".$loan_term_min."'/> months";
 
 	$loan_term_max = esc_attr( get_option('loan_term_max') );
 	echo "<input type='number' class='term-input'  name='loan_term_max' value='".$loan_term_max."'/> months";
+
+	$loan_term_step = esc_attr( get_option('loan_term_step') );
+	echo "<input type='number' class='term-input' name='loan_term_step' value='".$loan_term_step."'/>";
+
+	$loan_term_default = esc_attr( get_option('loan_term_default') );
+	echo "<input type='number' class='term-input'  name='loan_term_default' value='".$loan_term_default."'/>";
 }
 
 // Loan interest HTML function
@@ -147,22 +177,22 @@ function labels() {
 
 	echo "<p>Enter your labels here.</p>";
 	$amount_label = esc_attr( get_option('amount_label') );
-	echo "<textarea name='amount_label' rows='4' cols='50'>".$amount_label."</textarea>";
+	echo "<input type='text' name='amount_label' value='".$amount_label."'>";
 
 	$term_label = esc_attr( get_option('term_label') );
-	echo "<textarea name='term_label' rows='4' cols='50'>".$term_label."</textarea>";
+	echo "<input type='text' name='term_label' value='".$term_label."'>";
 
 	$payment_label = esc_attr( get_option('payment_label') );
-	echo "<textarea name='payment_label' rows='4' cols='50'>".$payment_label."</textarea>";
+	echo "<input type='text' name='payment_label' value='".$payment_label."'>";
 
 	$button_label = esc_attr( get_option('button_label') );
-	echo "<textarea name='button_label' rows='4' cols='50'>".$button_label."</textarea>";
+	echo "<input type='text' name='button_label' value='".$button_label."'>";
 
 	$chart_heading = esc_attr( get_option('chart_heading') );
-	echo "<input type='text' name='chart_heading'>".$chart_heading;
+	echo "<input type='text' name='chart_heading' value='".$chart_heading."'>";
 
 	$chart_label = esc_attr( get_option('chart_label') );
-	echo "<textarea name='chart_label' rows='4' cols='50'>".$chart_label."</textarea>";
+	echo "<input type='text' name='chart_label' value='".$chart_label."'>";
 }
 
 
