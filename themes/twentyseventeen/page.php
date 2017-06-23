@@ -1,27 +1,67 @@
+<?php
+/**
+ * The template for displaying all pages
+ *
+ * This is the template that displays all pages by default.
+ * Please note that this is the WordPress construct of pages
+ * and that other 'pages' on your WordPress site may use a
+ * different template.
+ *
+ * @link https://codex.wordpress.org/Template_Hierarchy
+ *
+ * @package WordPress
+ * @subpackage Twenty_Seventeen
+ * @since 1.0
+ * @version 1.0
+ */
 
-<!-- HTML FOR THE PLUGIN -->
-<div class="cal-plugin flex-media dir-row-media just-cont-btw-media">
+ echo "page";
+get_header(); ?>
+
+<div class="wrap">
+	<div id="primary" class="content-area">
+		<main id="main" class="site-main" role="main">
+
+			<?php
+			while ( have_posts() ) : the_post();
+
+				get_template_part( 'template-parts/page/content', 'page' );
+
+				// If comments are open or we have at least one comment, load up the comment template.
+				if ( comments_open() || get_comments_number() ) :
+					comments_template();
+				endif;
+
+			endwhile; // End of the loop.
+			?>
+
+		</main> <!-- #main -->
+	</div> <!-- #primary -->
+</div> <!-- .wrap -->
+
+
+<!-- <div class="cal-plugin flex-media dir-row-media just-cont-btw-media">
   <section class="payment flex-media dir-col-media just-cont-cent">
 
     <div>
       <label for="amount"> How much do you need? </label>
       <input type="text" id="amount" readonly>
-      <div id="slider-amount"></div>
+      <div id="amount-slider"></div>
     </div>
 
     <div>
       <label for="term"> How much do you need? </label>
       <input type="text" id="term" class="no-border" readonly>
-      <div id="slider-term"></div>
+      <div id="term-slider"></div>
     </div>
 
     <div>
       <label for="total-loan-amount"> Your estimated bi-weekely payment </label>
-      <!-- <p> $4,028 - $4,473 </p> -->
+      <p> $4,028 - $4,473 </p> -->
       <!-- dynam amount from js -->
-      <p> <span id="minimum-payment"></span> </p>
-      <p> <span id="maximum-payment "></span> </p>
-      <a href="" class="button">Get Your Free Quote </a>
+      <!-- <p> <span id="totalAmountMin"></span> </p>
+      <p> <span id="totalAmountMax "></span> </p> -->
+      <!-- <a href="" class="button">Get Your Free Quote </a>
     </div>
   </section>
 
@@ -60,11 +100,14 @@
     		 </div>
 
     	</div>
-    </div>
+    </div> -->
 
     <!-- <a href="#" id="change">Click</a> -->
 
-    <h6>Estimated Total Interest Cost </h6>
+    <!-- <h6>Estimated Total Interest Cost </h6>
   </section>
 
-</div>
+</div> -->
+
+
+<?php get_footer();
