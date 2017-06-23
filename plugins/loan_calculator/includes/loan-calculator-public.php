@@ -16,7 +16,7 @@
     </div>
 
     <div>
-      <label for="total-loan-amount"> Your estimated bi-weekely payment </label>
+      <label for="total-loan-amount"> Your estimated bi-weekely payment <span><i class="fa fa-question-circle-o" aria-hidden="true"></i></span> </label>
       <!-- <p> $4,028 - $4,473 </p> -->
       <!-- dynam amount from js -->
       <p> <span id="minimum-payment"></span> </p>
@@ -25,7 +25,7 @@
     </div>
   </section>
 
-  <section class=" bar-graph flex-media dir-col-media just-cont-cent-media">
+  <section class="bar-graph flex-media dir-col-media just-cont-cent-media">
       <h3> With Lendified you could </h3>
       <h3> save up to <span id="amount-saved" class="text-green">$13,015</span> in interest </h3>
 

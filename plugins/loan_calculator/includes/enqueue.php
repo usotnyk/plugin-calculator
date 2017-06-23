@@ -14,6 +14,10 @@ if(!is_admin()){
   wp_enqueue_script ('jquery-ui-touch-punch', 'https://cdnjs.cloudflare.com/ajax/libs/jqueryui-touch-punch/0.2.3/jquery.ui.touch-punch.min.js', array('jquery'), 3.3, true);
 
   wp_enqueue_script ('main-calculator-js', plugins_url('loan_calculator/public/js/') . 'main_calculator.js');
+
+   wp_enqueue_script ('test-js', plugins_url('loan_calculator/public/js/') . 'test.js');
+
+
 }
 
 wp_localize_script( 'main-calculator-js', 'wp_rates', array(

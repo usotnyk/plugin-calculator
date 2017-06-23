@@ -1,4 +1,5 @@
 //Initializing slider
+
 jQuery(document).ready(function($) {
   //recalculate();
   for(key in wp_ranges) {
