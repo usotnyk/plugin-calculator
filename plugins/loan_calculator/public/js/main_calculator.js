@@ -1,19 +1,10 @@
 //Initializing slider
-<<<<<<< HEAD
-=======
-
->>>>>>> 5cdb9398ffb1b4ebd070c7239b070fc28d1683e0
 jQuery(document).ready(function($) {
   recalculate();
   for(key in wp_ranges) {
     wp_ranges[key] = parseInt(wp_ranges[key]);
   }
-<<<<<<< HEAD
   $("#slider-amount").slider({
-=======
-
-  $("#slider-amount").slider({ 
->>>>>>> 5cdb9398ffb1b4ebd070c7239b070fc28d1683e0
     range: "min",
     value: 75000,
     min: wp_ranges.loanAmountMin,
@@ -24,13 +15,7 @@ jQuery(document).ready(function($) {
       recalculate();
     }
   });
-<<<<<<< HEAD
   $("#amount").val("$" + $("#slider-amount").slider("value").toString().replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,"));
-=======
-
-  $("#amount").val("$" + $("#slider-amount").slider("value").toString().replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,"));
-
->>>>>>> 5cdb9398ffb1b4ebd070c7239b070fc28d1683e0
   $("#slider-term").slider({
     range: "min",
     value: 12,
@@ -43,15 +28,7 @@ jQuery(document).ready(function($) {
     }
   });
   $("#term").val($("#slider-term").slider("value") + " months");
-<<<<<<< HEAD
 });
-=======
-
-});
-
-
-
->>>>>>> 5cdb9398ffb1b4ebd070c7239b070fc28d1683e0
 //Loan class constructor
 var Loan = function Loan(amount, term) {
   this.amount = amount;
@@ -112,10 +89,6 @@ function getPaymentInformation(amountValue, termValue) {
   return paymentInformation;
 }
 function displayPaymentInformation(paymentInformation) {
-<<<<<<< HEAD
-=======
-
->>>>>>> 5cdb9398ffb1b4ebd070c7239b070fc28d1683e0
   var minimumPaymentContainer = document.getElementById("minimum-payment");
   minimumPaymentContainer.innerHTML = formatCurrency(paymentInformation.minimumPaymentAmount);
   var maximumaymentContainer = document.getElementById("maximum-payment");
@@ -123,18 +96,8 @@ function displayPaymentInformation(paymentInformation) {
   var savingsContainer = document.getElementById("amount-saved");
   savingsContainer.innerHTML = formatCurrency(paymentInformation.interestSavings);
 }
-<<<<<<< HEAD
 function formatCurrency(amount) {
   var symbol = "$";
   var formattedAmount = Math.round(amount).toString().replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,");
   return symbol + formattedAmount;
-}  
-=======
-
-function formatCurrency(amount) {
-  var symbol = "$";
-  var formattedAmount = Math.round(amount).toString().replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,");
-
-  return symbol + formattedAmount;
-}  
->>>>>>> 5cdb9398ffb1b4ebd070c7239b070fc28d1683e0
+}

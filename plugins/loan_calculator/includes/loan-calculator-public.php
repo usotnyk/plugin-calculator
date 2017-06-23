@@ -19,18 +19,12 @@
       <label for="total-loan-amount"> Your estimated bi-weekely payment </label>
       <!-- <p> $4,028 - $4,473 </p> -->
       <!-- dynam amount from js -->
-<<<<<<< HEAD
       <p> <span id="minimum-payment"></span> </p>
-      <p> <span id="maximum-payment"></span> </p>
-=======
-      <p><span id="minimum-payment"></span> - <span id="maximum-payment"></span></p>
-
->>>>>>> 5cdb9398ffb1b4ebd070c7239b070fc28d1683e0
+      <p> <span id="maximum-payment "></span> </p>
       <a href="" class="button">Get Your Free Quote </a>
     </div>
   </section>
 
-<<<<<<< HEAD
   <section class=" bar-graph flex-media dir-col-media just-cont-cent-media">
       <h3> With Lendified you could </h3>
       <h3> save up to <span id="amount-saved" class="text-green">$13,015</span> in interest </h3>
@@ -71,13 +65,6 @@
     <!-- <a href="#" id="change">Click</a> -->
 
     <h6>Estimated Total Interest Cost </h6>
-=======
-  <section class="flex-media dir-col-media width-60-media height-media just-cont-cent-media bg-media">
-    <h3> With Lendified you could </h3>
-    <h3 class="text-green"> save up to <span id="amount-saved"></span> in interest </h3>
-    <img src="bar.png" alt="temporary bar">
-    <h6 class="text-center">Estimated Total Interest Cost </h6>
->>>>>>> 5cdb9398ffb1b4ebd070c7239b070fc28d1683e0
   </section>
 
 </div>
