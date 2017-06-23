@@ -125,4 +125,8 @@ function formatCurrency(amount) {
   var formattedAmount = Math.round(amount).toString().replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,");
 
   return symbol + formattedAmount;
+<<<<<<< HEAD
 }  
+=======
+}  
+>>>>>>> development
