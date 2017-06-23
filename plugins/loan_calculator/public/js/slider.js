@@ -1,4 +1,10 @@
 // jQuery(document).ready(function($) {
+//   $("#amount-slider").slider({
+//   for(key in wp_ranges) {
+//     wp_ranges[key] = parseInt(wp_ranges[key]);
+//   } 
+
+//   $("#slider-amount").slider({
 //   for(key in wp_ranges) {
 //     wp_ranges[key] = parseInt(wp_ranges[key]);
 //   }
@@ -14,6 +20,20 @@
 //     }
 //   });
 
+//   $("#amount").val("$" + $("#amount-slider").slider("value"));
+//   $("#amount").val("$" + $("#slider-amount").slider("value").toString().replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,"));
+
+//   $("#slider-term").slider({
+//     range: "min",
+//     value: 3,
+//     min: wp_ranges.loanTermMin,
+//     max: wp_ranges.loanTermMax,
+//     step: 3,
+//     slide: function(event, ui) {
+//       $("#term").val(ui.value + " months");
+//     }
+//   });
+//   $("#term").val($("#slider-term").slider("value") + " months");
 //   //$("#amount").val("$" + $("#amount-slider").slider("value"));
 
 //   $("#amount").val("$" + $("#slider-amount").slider("value").toString().replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,"));
@@ -29,5 +49,4 @@
 //     }
 //   });
 //   $("#term").val($("#slider-term").slider("value") + " months");
-
 // });

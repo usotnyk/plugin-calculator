@@ -4,14 +4,14 @@
     <form action="options.php" method="post">
         <?php 
         	settings_fields('loan-calculator-settings-group');
-        	echo "<div class='settings-group'>";
+            echo "<div class='settings-group'>";
+            do_settings_sections('interest_rates');
+            echo "</div>";
+        	echo "<div class='settings-group width-20'>";
         	do_settings_sections('loan_amounts');
         	echo "</div>";
             echo "<div class='settings-group'>";
         	do_settings_sections('loan_terms');
-            echo "</div>";
-            echo "<div class='settings-group'>";
-            do_settings_sections('interest_rates');
             echo "</div>";
             echo "<div class='settings-group'>";
             do_settings_sections('pop_ups');
