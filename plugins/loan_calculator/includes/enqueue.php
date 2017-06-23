@@ -13,8 +13,6 @@ if(!is_admin()){
 
   wp_enqueue_script ('jquery-ui-touch-punch', 'https://cdnjs.cloudflare.com/ajax/libs/jqueryui-touch-punch/0.2.3/jquery.ui.touch-punch.min.js', array('jquery'), 3.3, true);
 
-  wp_enqueue_script ('slider-js', plugins_url('loan_calculator/public/js/') . 'slider.js');
-
   wp_enqueue_script ('main-calculator-js', plugins_url('loan_calculator/public/js/') . 'main_calculator.js');
 }
 
@@ -26,7 +24,7 @@ wp_localize_script( 'main-calculator-js', 'wp_rates', array(
   'competitorTwoInterest' => get_option('competitor_two_interest')
   ) );
 
-wp_localize_script( 'slider-js', 'wp_ranges', array(
+wp_localize_script( 'main-calculator-js', 'wp_ranges', array(
   'loanAmountMin' => get_option('loan_amount_min'),
   'loanAmountMax' => get_option('loan_amount_max'),
   'loanTermMin' => get_option('loan_term_min'),

@@ -38,7 +38,7 @@ get_header(); ?>
 <!-- </div><!-- .wrap -->
 
 
-<div class="cal-plugin flex-media dir-row-media just-cont-btw-media">
+<!-- <div class="cal-plugin flex-media dir-row-media just-cont-btw-media">
   <section class="payment flex-media dir-col-media just-cont-cent">
 
     <div>
@@ -55,11 +55,11 @@ get_header(); ?>
 
     <div>
       <label for="total-loan-amount"> Your estimated bi-weekely payment </label>
-      <p> $4,028 - $4,473 </p>
+      <p> $4,028 - $4,473 </p> -->
       <!-- dynam amount from js -->
       <!-- <p> <span id="totalAmountMin"></span> </p>
       <p> <span id="totalAmountMax "></span> </p> -->
-      <a href="" class="button">Get Your Free Quote </a>
+      <!-- <a href="" class="button">Get Your Free Quote </a>
     </div>
   </section>
 
@@ -98,14 +98,14 @@ get_header(); ?>
     		 </div>
 
     	</div>
-    </div>
+    </div> -->
 
     <!-- <a href="#" id="change">Click</a> -->
 
-    <h6>Estimated Total Interest Cost </h6>
+    <!-- <h6>Estimated Total Interest Cost </h6>
   </section>
 
-</div>
+</div> -->
 
 
 <?php get_footer();
