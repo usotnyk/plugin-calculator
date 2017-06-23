@@ -19,9 +19,8 @@
       <label for="total-loan-amount"> Your estimated bi-weekely payment </label>
       <!-- <p> $4,028 - $4,473 </p> -->
       <!-- dynam amount from js -->
-      <p> <span id="minimum-payment"></span> </p>
-      <p> <span id="maximum-payment "></span> </p>
-      <a href="" class="button">Get Your Free Quote </a>
+      <p> <span id="minimum-payment">$2,981</span> -  <span id="maximum-payment">$3,294</span> </p>
+      <a href="#" class="button">Get Your Free Quote </a>
     </div>
   </section>
 
