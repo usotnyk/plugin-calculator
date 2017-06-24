@@ -7,7 +7,6 @@ jQuery(document).ready(function($) {
   }
 
   //Initializing slider
-
   $("#slider-amount").slider({
     range: "min",
     value: 75000,
@@ -35,26 +34,10 @@ jQuery(document).ready(function($) {
   });
   $("#term").val($("#slider-term").slider("value") + " months");
 
-  //Bar animations
-  // {
-  //   "outer-bar-1" : {
-  //     "height" : 40%,
-  //     parent : outer-bar-2,
+  //Chart animations
 
-  //   },
-  //   "outer-bar-2" : {
-  //   }
-  // }
-  // function animateDelay (ele,dly,obj,val) {
-  //   $('.outer-bar-1').delay(100).animate({'height': '40%'},function (){
-  //     animateDelay (ele,obj,val,call);
-  //   },800);
-  // }
   function animateBarsUp() {
-    console.log("animating bars up");
-    $('.outer-bar-1').delay(100).animate({'height': '40%'},function (){
-
-    },800);
+    $('.outer-bar-1').delay(100).animate({'height': '40%'},800);
     $('.outer-bar-1').delay(100).animate({'height': '40%'},800);
     $('.outer-bar-2').delay(200).animate({'height': '70%'},800);
     $('.outer-bar-3').delay(300).animate({'height': '100%'},800);
@@ -65,7 +48,6 @@ jQuery(document).ready(function($) {
   }
 
   function animateBars() {
-    console.log("animating bars");
     $('.lendified-price').fadeOut(200).delay(100).fadeIn(800);
     $('.comp-1-price').fadeOut(200).delay(200).fadeIn(800);
     $('.comp-2-price').fadeOut(200).delay(300).fadeIn(800);
@@ -73,7 +55,10 @@ jQuery(document).ready(function($) {
     $('.outer-bar-1').animate({'height': '0%'},200).delay(100).animate({'height': '40%'},800);
     $('.outer-bar-2').animate({'height': '0%'},200).delay(200).animate({'height': '70%'},800);
     $('.outer-bar-3').animate({'height': '0%'},200).delay(300).animate({'height': '100%'},800);
-  }
+  } 
+
+});
+
 
   //Loan class constructor
   var Loan = function Loan(amount, term) {
@@ -147,6 +132,4 @@ jQuery(document).ready(function($) {
     var symbol = "$";
     var formattedAmount = Math.round(amount).toString().replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,");
     return symbol + formattedAmount;
-  }  
-
-});
+  } 
