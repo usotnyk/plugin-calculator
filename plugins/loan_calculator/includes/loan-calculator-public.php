@@ -19,14 +19,14 @@
       <label for="total-loan-amount"> Your estimated bi-weekely payment </label>
       <!-- <p> $4,028 - $4,473 </p> -->
       <!-- dynam amount from js -->
-      <p> <span id="minimum-payment">$2,981</span> -  <span id="maximum-payment">$3,294</span> </p>
+      <p> <span id="minimum-payment"></span> -  <span id="maximum-payment"></span> </p>
       <a href="#" class="button">Get Your Free Quote </a>
     </div>
   </section>
 
   <section class=" bar-graph flex-media dir-col-media just-cont-cent-media">
       <h3> With Lendified you could </h3>
-      <h3> save up to <span id="amount-saved" class="text-green">$13,015</span> in interest </h3>
+      <h3> save up to <span id="amount-saved" class="text-green"></span> in interest </h3>
 
     <div class="outer-graph">
     	<div class="inner-graph">
@@ -36,7 +36,7 @@
     				<img class="hidden title-p" src="https://www.lendified.com/wp-content/uploads/2015/07/lendified-logo-dark@2x.png">
     			</div>
     			<div class="bar-1-column">
-    				<p class="column-p lendified-price">$10,000</p>
+    				<p class="column-p lendified-price" id="bar-one-cost"></p>
     			</div>
     			</div>
 
@@ -45,7 +45,7 @@
       				<p class="hidden title-p">Other Online Lenders</p>
       			</div>
       			<div class="bar-2-column">
-      				<p class="column-p comp-1-price">$17,500</p>
+      				<p class="column-p comp-1-price" id="bar-two-cost"></p>
       			</div>
     			</div>
 
@@ -54,7 +54,7 @@
       				<p class="hidden title-p">Merchant Advance</p>
       			</div>
       			<div class="bar-3-column">
-      				<p class="column-p comp-2-price">$23,015</p>
+      				<p class="column-p comp-2-price" id="bar-three-cost"></p>
       			</div>
     		 </div>
 
