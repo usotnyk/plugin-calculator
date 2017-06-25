@@ -1,79 +1,70 @@
 //Initializing slider
 jQuery(document).ready(function($) {
-  //recalculate();
-  animateBarsUp();
+
   for(key in wp_ranges) {
     wp_ranges[key] = parseInt(wp_ranges[key]);
   }
 
-  //Initializing slider
+ for(key in wp_rates) {
+    wp_rates[key] = parseInt(wp_rates[key]);
+  }
 
+  //Initializing slider
   $("#slider-amount").slider({
     range: "min",
-    value: 75000,
+    value: wp_ranges.loanAmountDefault,
     min: wp_ranges.loanAmountMin,
     max: wp_ranges.loanAmountMax,
-    step: 1000,
+    step: wp_ranges.loanAmountStep,
     slide: function(event, ui) {
-      $("#amount").val("$" + ui.value.toString().replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,"));
-      recalculate();
+      $("#amount").val(formatCurrency(ui.value));
+      displayBiWeeklyPayment(recalculate());
     },
-    stop: animateBars
+    stop:  function() {
+      animateBars(recalculate());
+      displayChartCosts(recalculate());
+    }
   });
-  $("#amount").val("$" + $("#slider-amount").slider("value").toString().replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,"));
+  $("#amount").val(formatCurrency($("#slider-amount").slider("value")));
+
   $("#slider-term").slider({
     range: "min",
-    value: 12,
+    value: wp_ranges.loanTermDefault,
     min: wp_ranges.loanTermMin,
     max: wp_ranges.loanTermMax,
-    step: 3,
+    step: wp_ranges.loanTermStep,
     slide: function(event, ui) {
       $("#term").val(ui.value + " months");
-      recalculate();
+      displayBiWeeklyPayment(recalculate());
     },
-    stop: animateBars
+    stop: function() {
+      animateBars(recalculate());
+      displayChartCosts(recalculate());
+    } 
   });
   $("#term").val($("#slider-term").slider("value") + " months");
 
-  //Bar animations
-  // {
-  //   "outer-bar-1" : {
-  //     "height" : 40%,
-  //     parent : outer-bar-2,
+  //Chart animations
 
-  //   },
-  //   "outer-bar-2" : {
-  //   }
-  // }
-  // function animateDelay (ele,dly,obj,val) {
-  //   $('.outer-bar-1').delay(100).animate({'height': '40%'},function (){
-  //     animateDelay (ele,obj,val,call);
-  //   },800);
-  // }
-  function animateBarsUp() {
-    console.log("animating bars up");
-    $('.outer-bar-1').delay(100).animate({'height': '40%'},function (){
-
-    },800);
-    $('.outer-bar-1').delay(100).animate({'height': '40%'},800);
-    $('.outer-bar-2').delay(200).animate({'height': '70%'},800);
-    $('.outer-bar-3').delay(300).animate({'height': '100%'},800);
+  function animateBarsUp(paymentInformation) {
+    $('.outer-bar-1').delay(100).animate({'height': paymentInformation.barOneHeight + '%'},800);
+    $('.outer-bar-2').delay(200).animate({'height': paymentInformation.barTwoHeight + '%'},800);
+    $('.outer-bar-3').delay(300).animate({'height': paymentInformation.barThreeHeight + '%'},800);
     $('.hidden').delay(500).animate({'opacity': '1'},800);
     $('.lendified-price').delay(100).fadeIn(800);
     $('.comp-1-price').delay(200).fadeIn(800);
     $('.comp-2-price').delay(300).fadeIn(800);
   }
 
-  function animateBars() {
-    console.log("animating bars");
+  function animateBars(paymentInformation) {
     $('.lendified-price').fadeOut(200).delay(100).fadeIn(800);
     $('.comp-1-price').fadeOut(200).delay(200).fadeIn(800);
     $('.comp-2-price').fadeOut(200).delay(300).fadeIn(800);
     $('.hidden').animate({'opacity': '0'},0).delay(500).animate({'opacity': '1'},800);
-    $('.outer-bar-1').animate({'height': '0%'},200).delay(100).animate({'height': '40%'},800);
-    $('.outer-bar-2').animate({'height': '0%'},200).delay(200).animate({'height': '70%'},800);
-    $('.outer-bar-3').animate({'height': '0%'},200).delay(300).animate({'height': '100%'},800);
-  }
+    $('.outer-bar-1').animate({'height': '0%'},200).delay(100).animate({'height': paymentInformation.barOneHeight + '%'},800);
+    $('.outer-bar-2').animate({'height': '0%'},200).delay(200).animate({'height': paymentInformation.barTwoHeight + '%'},800);
+    $('.outer-bar-3').animate({'height': '0%'},200).delay(300).animate({'height': paymentInformation.barThreeHeight + '%'},800);
+  } 
 
   //Loan class constructor
   var Loan = function Loan(amount, term) {
@@ -108,14 +99,16 @@ jQuery(document).ready(function($) {
       return discountFactor;
     }
   }
+
   // client application - new instance of loan and calculations with diffrent interests
   function recalculate() {
     var amountValue = jQuery("#slider-amount").slider("value");
     var termValue = jQuery("#slider-term").slider("value");
     var paymentInformation = getPaymentInformation(amountValue, termValue);
-    //paymentInformation.inspect();
-    displayPaymentInformation(paymentInformation);
+    paymentInformation.inspect();
+    return paymentInformation;
   }
+
   //wp_rates object stores interest rates entered through admin
   function getPaymentInformation(amountValue, termValue) {
     var paymentInformation = {};
@@ -123,10 +116,15 @@ jQuery(document).ready(function($) {
     paymentInformation.minimumPaymentAmount = LoanCalculator.calculatePayments(loan, wp_rates.interestMin);
     paymentInformation.maximumPaymentAmount = LoanCalculator.calculatePayments(loan, wp_rates.interestMax);
     //interest cost calculations
-    paymentInformation.lendifiedInterestCost = LoanCalculator.calculateInterestCost(loan, wp_rates.landifiedInterest);
-    paymentInformation.competitorOneInterestCost = LoanCalculator.calculateInterestCost(loan, wp_rates.competitorOneInterest);
-    paymentInformation.competitorTwoInterestCost = LoanCalculator.calculateInterestCost(loan, wp_rates.competitorTwoInterest);
-    paymentInformation.interestSavings = paymentInformation.competitorTwoInterestCost - paymentInformation.lendifiedInterestCost;
+    paymentInformation.barOneInterestCost = LoanCalculator.calculateInterestCost(loan, wp_rates.barOneInterest);
+    paymentInformation.barTwoInterestCost = LoanCalculator.calculateInterestCost(loan, wp_rates.barTwoInterest);
+    paymentInformation.barThreeInterestCost = LoanCalculator.calculateInterestCost(loan, wp_rates.barThreeInterest);
+    paymentInformation.interestSavings = paymentInformation.barThreeInterestCost - paymentInformation.barOneInterestCost;
+
+    //bars height
+    paymentInformation.barThreeHeight = 100;
+    paymentInformation.barOneHeight = (paymentInformation.barThreeHeight * paymentInformation.barOneInterestCost)/paymentInformation.barThreeInterestCost;
+    paymentInformation.barTwoHeight = (paymentInformation.barThreeHeight * paymentInformation.barTwoInterestCost)/paymentInformation.barThreeInterestCost;
 
     paymentInformation.inspect = function() {
       console.log(this);
@@ -134,19 +132,36 @@ jQuery(document).ready(function($) {
     return paymentInformation;
   }
 
-  function displayPaymentInformation(paymentInformation) {
-    var minimumPaymentContainer = document.getElementById("minimum-payment");
-    minimumPaymentContainer.innerHTML = formatCurrency(paymentInformation.minimumPaymentAmount);
-    var maximumaymentContainer = document.getElementById("maximum-payment");
-    maximumaymentContainer.innerHTML = formatCurrency(paymentInformation.maximumPaymentAmount);
-    var savingsContainer = document.getElementById("amount-saved");
-    savingsContainer.innerHTML = formatCurrency(paymentInformation.interestSavings);
+  function displayPaymentAndCost(paymentInformation) {
+    displayBiWeeklyPayment(paymentInformation);
+    displayChartCosts(paymentInformation);
+  }
+
+  function displayBiWeeklyPayment(paymentInformation) {
+    jQuery("#minimum-payment").html(formatCurrency(paymentInformation.minimumPaymentAmount));
+    jQuery("#maximum-payment").html(formatCurrency(paymentInformation.maximumPaymentAmount));
+  }
+
+  function displayChartCosts(paymentInformation) {
+    jQuery("#amount-saved").html(formatCurrency(paymentInformation.interestSavings));
+    jQuery("#bar-one-cost").html(formatCurrency(paymentInformation.barOneInterestCost));
+    jQuery("#bar-two-cost").html(formatCurrency(paymentInformation.barTwoInterestCost));
+    jQuery("#bar-three-cost").html(formatCurrency(paymentInformation.barThreeInterestCost));
   }
 
   function formatCurrency(amount) {
     var symbol = "$";
     var formattedAmount = Math.round(amount).toString().replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,");
     return symbol + formattedAmount;
-  }  
+  }
 
-});
+  function renderLabels() {
+    console.log(wp_labels);
+  }
+//On page load
+
+  displayPaymentAndCost(recalculate());
+  animateBarsUp(recalculate());
+  renderLabels()
+}); 
+

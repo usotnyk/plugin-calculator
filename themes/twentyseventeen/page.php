@@ -1,3 +1,4 @@
+
 <?php
 /**
  * The template for displaying all pages
@@ -15,17 +16,18 @@
  * @version 1.0
  */
 
- echo "page";
+
 get_header(); ?>
 
-<div class="wrap">
+<!-- <div class="wrap">
 	<div id="primary" class="content-area">
-		<main id="main" class="site-main" role="main">
+		<main id="main" class="site-main" role="main"> -->
 
 			<?php
 			while ( have_posts() ) : the_post();
 
-				get_template_part( 'template-parts/page/content', 'page' );
+				// get_template_part( 'template-parts/page/content', 'page' );
+        the_content();
 
 				// If comments are open or we have at least one comment, load up the comment template.
 				if ( comments_open() || get_comments_number() ) :
@@ -35,9 +37,9 @@ get_header(); ?>
 			endwhile; // End of the loop.
 			?>
 
-		</main> <!-- #main -->
-	</div> <!-- #primary -->
-</div> <!-- .wrap -->
+		<!-- </main> --> <!-- #main -->
+	<!-- </div> --> <!-- #primary -->
+<!-- </div> --> <!-- .wrap -->
 
 
 <!-- <div class="cal-plugin flex-media dir-row-media just-cont-btw-media">

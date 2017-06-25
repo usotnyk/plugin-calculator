@@ -23,6 +23,7 @@ function loan_calculator_settings() {
 	register_setting( 'loan-calculator-settings-group', 'lendified_interest');
 	register_setting( 'loan-calculator-settings-group', 'bar_1_interest');
 	register_setting( 'loan-calculator-settings-group', 'bar_2_interest');
+	register_setting( 'loan-calculator-settings-group', 'bar_3_interest');
 	register_setting( 'loan-calculator-settings-group', 'bar_1_label');
 	register_setting( 'loan-calculator-settings-group', 'bar_2_label');
 	register_setting( 'loan-calculator-settings-group', 'bar_3_label');
