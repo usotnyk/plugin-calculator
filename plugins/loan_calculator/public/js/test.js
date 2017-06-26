@@ -22,3 +22,9 @@ jQuery('#change').mouseup(function($) {
 	$('.outer-bar-2').animate({'height': '0%'},200).delay(200).animate({'height': '70%'},800);
 	$('.outer-bar-3').animate({'height': '0%'},200).delay(300).animate({'height': '100%'},800);
 });
+
+
+
+jQuery( function() {
+  $( document ).tooltip();
+} );

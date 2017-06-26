@@ -16,7 +16,9 @@
     </div>
 
     <div>
-      <label for="total-loan-amount"> Your estimated bi-weekely payment <span><i class="fa fa-question-circle-o" aria-hidden="true"></i></span> </label>
+      <label for="total-loan-amount"> Your estimated bi-weekely payment
+        <span role="tooltip" class="fa fa-question-circle-o" aria-hidden="true" title="hello payment"></span>
+       </label>
       <!-- <p> $4,028 - $4,473 </p> -->
       <!-- dynam amount from js -->
       <p> <span id="minimum-payment"></span> </p>
@@ -62,9 +64,9 @@
     	</div>
     </div>
 
-    <!-- <a href="#" id="change">Click</a> -->
-
-    <h6>Estimated Total Interest Cost </h6>
+    <h6>Estimated Total Interest Cost
+      <span role="tooltip" class="fa fa-question-circle-o" aria-hidden="true" title="hello calculator inf iuasd fiuasd fiuasbdf iuasbd fiusbd fiubsdifubasidufbsidufb isudfb isudbf isudbf isudbf isudfbisdufb isuDBFLSIDULISUDBV LIASDBVLAKUBF IAUDFB IAUBF IASUBD IASUDB FIASUDB FISUDFNSADJVINASUVB IAUSFBAISUFB AIFUB IADFU BAIFUBAIOUFGB AIOSUD GBAIGB"></span>
+    </h6>
   </section>
 
 </div>
