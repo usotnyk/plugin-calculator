@@ -1,6 +1,7 @@
 //Initializing slider
 jQuery(document).ready(function($) {
 
+
   for(key in wp_ranges) {
     wp_ranges[key] = parseInt(wp_ranges[key]);
   }
