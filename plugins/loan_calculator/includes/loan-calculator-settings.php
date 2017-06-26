@@ -174,7 +174,7 @@ function interest_content() {
 	echo "</div>";
 
 	$bar_2_label = esc_attr( get_option('bar_2_label') );
-	$bar_two_interest = esc_attr( get_option('bar_2_interest') );
+	$bar_2_interest = esc_attr( get_option('bar_2_interest') );
 	echo "<div class='flex flex-align-center flex-space-between'>";
 	echo "<p class='padding-right-lrg'>Bar 2:</p>";
 	echo "<div class='flex flex-align-center'>";
