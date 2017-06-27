@@ -42,7 +42,7 @@ jQuery(document).ready(function($) {
     stop: function() {
       animateBars(recalculate());
       displayChartCosts(recalculate());
-    } 
+    }
   });
   $("#term").val($("#slider-term").slider("value") + " months");
 
@@ -66,7 +66,7 @@ jQuery(document).ready(function($) {
     $('.outer-bar-1').animate({'height': '0%'},200).delay(100).animate({'height': paymentInformation.barOneHeight + '%'},800);
     $('.outer-bar-2').animate({'height': '0%'},200).delay(200).animate({'height': paymentInformation.barTwoHeight + '%'},800);
     $('.outer-bar-3').animate({'height': '0%'},200).delay(300).animate({'height': paymentInformation.barThreeHeight + '%'},800);
-  } 
+  }
 
   //Loan class constructor
   var Loan = function Loan(amount, term) {
@@ -164,6 +164,5 @@ jQuery(document).ready(function($) {
 
   displayPaymentAndCost(recalculate());
   animateBarsUp(recalculate());
-  renderLabels()
-}); 
-
+  //renderLabels()
+});
