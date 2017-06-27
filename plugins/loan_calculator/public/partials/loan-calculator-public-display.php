@@ -32,15 +32,13 @@
     </div>
 
     <div>
-      <label for="total-loan-amount"><?php echo get_option('payment_label'); ?></label>
-      <!-- <p> $4,028 - $4,473 </p> -->
-      <!-- dynam amount from js -->
+      <label for="total-loan-amount"><?php echo get_option('payment_label'); ?>   <span role="tooltip" class="fa fa-question-circle-o" aria-hidden="true" title="bi-weekly payment"></span> </label>
       <p> <span id="minimum-payment"></span> -  <span id="maximum-payment"></span> </p>
       <a href="<?php echo get_option('button_link'); ?>" class="button"><?php echo get_option('button_label'); ?></a>
     </div>
   </section>
 
-  <section class=" bar-graph flex-media dir-col-media just-cont-cent-media">
+  <section class=" bar-graph flex-media dir-col-media just-cont-btw-media">
       <h3><?php echo get_option('chart_heading'); ?></h3>
 
     <div class="outer-graph">
@@ -84,7 +82,7 @@
 
     <!-- <a href="#" id="change">Click</a> -->
 
-    <h6><?php echo get_option('chart_label'); ?></h6>
+    <h6><?php echo get_option('chart_label'); ?> <span role="tooltip" class="fa fa-question-circle-o" aria-hidden="true" title="Total interest cost "></span> </h6>
   </section>
 
 </div>
