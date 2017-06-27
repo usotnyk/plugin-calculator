@@ -156,13 +156,9 @@ jQuery(document).ready(function($) {
     return symbol + formattedAmount;
   }
 
-  function renderLabels() {
-    console.log(wp_labels);
-  }
 //On page load
 
   displayPaymentAndCost(recalculate());
   animateBarsUp(recalculate());
-  renderLabels()
 }); 
 
