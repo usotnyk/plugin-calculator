@@ -241,7 +241,8 @@ function labels() {
 	$chart_heading = esc_attr( get_option('chart_heading') );
 	echo "<div class='flex flex-align-center flex-space-between'>";
 	echo "<label class='sub-label' for='chart_heading'>Chart Heading</label>";
-	echo "<input type='text' name='chart_heading' value='".$chart_heading."'>";
+	echo "<input type='button' id='amount_placeholder' value='OK' />";
+	echo "<input id='txt' type='text' name='chart_heading' value='".$chart_heading."'>";
 	echo "</div>";
 
 	$chart_label = esc_attr( get_option('chart_label') );
