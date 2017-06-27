@@ -1,6 +1,5 @@
 (function( $ ) {
 	'use strict';
-
 	/**
 	 * All of the code for your admin-facing JavaScript source
 	 * should reside in this file.
@@ -28,18 +27,18 @@
 	 * Although scripts in the WordPress core, Plugins and Themes may be
 	 * practising this, we should strive to set a better example in our own work.
 	 */
-	console.log("js for admin");
-	jQuery(document).ready(function($) {
 
-		jQuery("#amount_placeholder").click(function() {
-		    console.log("clicking");
-		    var $txt = jQuery("#txt");
-		    console.log($txt);
-		    var caretPos = $txt[0].selectionStart;
-		    var textAreaTxt = $txt.val();
-		    var txtToAdd = "<span id='?'></span>";
-		    $txt.val(textAreaTxt.substring(0, caretPos) + txtToAdd + textAreaTxt.substring(caretPos) );
-		});
-	});
+	console.log("js for admin");
+    jQuery(document).ready(function($) {
+        jQuery("#amount_placeholder").click(function() {
+            //console.log("clicking");
+            var $txt = jQuery("#txt");
+            console.log($txt);
+            var caretPos = $txt[0].selectionStart;
+            var textAreaTxt = $txt.val();
+            var txtToAdd = "<span id='?'></span>";
+            $txt.val(textAreaTxt.substring(0, caretPos) + txtToAdd + textAreaTxt.substring(caretPos) );
+        });
+    });
 
 })( jQuery );
