@@ -75,7 +75,8 @@ class Loan_Calculator {
 		$this->set_locale();
 		$this->define_admin_hooks();
 		$this->define_public_hooks();
-
+		$this->enqueue_scripts();
+		$this->localize_settings();
 	}
 
 	/**
@@ -169,6 +170,57 @@ class Loan_Calculator {
 
 		$this->loader->add_action( 'wp_enqueue_scripts', $plugin_public, 'enqueue_styles' );
 		$this->loader->add_action( 'wp_enqueue_scripts', $plugin_public, 'enqueue_scripts' );
+
+	}
+
+	/**
+	 * Enqueuing scripts and styles for plugin.
+	 *
+	 * @since    1.0.0
+	 * @access   private
+	 */
+	private function enqueue_scripts() {
+
+		if(!is_admin()){
+			wp_enqueue_style ('jquery-ui-css', 'https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css');
+			wp_enqueue_style ('slider-style', plugins_url('loan_calculator/public/css/') . 'sliderstyle.css');
+			wp_enqueue_script ('jquery', 'https://code.jquery.com/jquery-1.12.4.js', array('jquery'), 3.3, true);
+			wp_enqueue_script ('jquery-ui-js', 'https://code.jquery.com/ui/1.12.1/jquery-ui.js', array('jquery'), 3.3, true);
+			wp_enqueue_script ('jquery-ui-touch-punch', 'https://cdnjs.cloudflare.com/ajax/libs/jqueryui-touch-punch/0.2.3/jquery.ui.touch-punch.min.js', array('jquery'), 3.3, true);
+			wp_enqueue_script ('main-calculator-js', plugins_url('loan_calculator/public/js/') . 'main_calculator.js');
+		}
+
+	}
+
+	/**
+	 * Localizing admin settings to be used within javascript.
+	 *
+	 * @since    1.0.0
+	 * @access   private
+	 */
+	private function localize_settings() {
+
+		//Localizing Interest Rates from Admin Settings
+		wp_localize_script( 'main-calculator-js', 'wp_rates', array(
+			'interestMin' => get_option('bwp_interest_min'),
+			'interestMax' => get_option('bwp_interest_max'),
+			'landifiedInterest' => get_option('lendified_interest'),
+			'barOneInterest' => get_option('bar_1_interest'),
+			'barTwoInterest' => get_option('bar_2_interest'),
+			'barThreeInterest' => get_option('bar_3_interest')
+  		));
+
+		//Localizing Loan Amount and Term from Admin Settings
+		wp_localize_script( 'main-calculator-js', 'wp_ranges', array(
+			'loanAmountMin' => get_option('loan_amount_min'),
+			'loanAmountMax' => get_option('loan_amount_max'),
+			'loanAmountStep' => get_option('loan_amount_step'),
+			'loanAmountDefault' => get_option('loan_amount_default'),
+			'loanTermMin' => get_option('loan_term_min'),
+			'loanTermMax' => get_option('loan_term_max'),
+			'loanTermStep' => get_option('loan_term_step'),
+			'loanTermDefault' => get_option('loan_term_default')
+  		));
 
 	}
 

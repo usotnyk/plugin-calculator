@@ -3,7 +3,8 @@
  * included in this file.
  */
 
-input[type="number"] {
+input[type="text"] {
+	width: 300px;
 }
 
 label { 
@@ -60,4 +61,12 @@ input {
 }
 .margin-top-none {
 	margin-top: 0;
+}
+.block {
+	display: block;
+}
+.info-code {
+	background-color: #d3d3d3;
+	display: inline-block;
+	margin: 0;
 }

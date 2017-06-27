@@ -86,8 +86,7 @@ function loan_calculator_menu(){
         99
     );
 
-    require_once('includes/loan-calculator-settings.php');
-    //add_action('admin_init', 'loan_calculator_settings');
+    require_once('admin/partials/loan-calculator-settings.php');
 }
 
 add_action('admin_menu', 'loan_calculator_menu');
@@ -98,16 +97,14 @@ function loan_calculator_admin(){
     if (!current_user_can('manage_options')) {
         return;
     }
-  	require_once('includes/loan-calculator-admin.php');
+  	require_once('admin/partials/loan-calculator-admin-display.php');
 }
 
 // Creating plugin shortcode
 
 function generate_shortcode(){
-	require_once('includes/loan-calculator-public.php');
+	require_once('public/partials/loan-calculator-public-display.php');
 }
 add_shortcode('loan-calculator', 'generate_shortcode');
-
-require 'includes/enqueue.php';
 
 ?>
