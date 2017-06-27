@@ -68,6 +68,11 @@ jQuery(document).ready(function($) {
     $('.outer-bar-3').animate({'height': '0%'},200).delay(300).animate({'height': paymentInformation.barThreeHeight + '%'},800);
   }
 
+  //Pop up
+    $( function() {
+      $( document ).tooltip();
+    } );
+
   //Loan class constructor
   var Loan = function Loan(amount, term) {
     this.amount = amount;

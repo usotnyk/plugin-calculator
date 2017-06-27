@@ -2,7 +2,7 @@
    padding: 0;
    margin: 0;}
 
-/*FONT FOR THE PLUGIN*/
+/*FONT FAMILY FOR THE PLUGIN*/
 
 @font-face {font-family: "segoe-ui";
             src: url("../assets/segoe-ui.ttf");}
@@ -57,31 +57,25 @@
                 border:0;
                 color:#494949;
                 margin-bottom: 5px;
-                font-family: "segoe-ui";
-                font-weight: 600;}
+                font-family: "segoe-ui",'Lato', sans-serif;
+                font-weight: 700;}
 
 .payment input {border: none;
                 font-size: 1.5em;
                 margin-bottom: 10px;
                 text-align: center;
-                font-weight: 600;
                 width: 100%;
-                font-family: "segoe-ui-semibold";}
+                font-family: "segoe-ui-semibold", 'Lato', sans-serif;
+                font-weight: 700;}
 
 .payment input[type="text"] {border: none;}
-
-.cal-plugin  h3 {margin-bottom: 5px;
-                 color: #494949;
-                 text-align: center;
-                 font-size: 1.5em;
-                 font-weight: 600;
-                 padding: 0em;}
 
 .payment  p {margin: 5px;
              text-align: center;
              font-size: 1.8em;
              color: #494949;
-             font-family: "segoe-ui-semibold";}
+             font-family: "segoe-ui-semibold", 'Lato', sans-serif;
+             font-weight: 700;}
 
 .cal-plugin  a {display: inline-block;
                 text-align: center;}
@@ -96,14 +90,18 @@
 
 /*BAR GRAPH*/
 
-/*html, body, p {padding: 0;
-							 margin: 0;
-							 font-family: Helvetica;
-							 text-align: center;}*/
-.bar-graph h3 {font-family: "segoe-ui-semibold";}
+.bar-graph h3 {margin-bottom: 5px;
+               color: #494949;
+               text-align: center;
+               font-size: 1.5em;
+               font-weight: 700;
+               padding: 0em;
+               font-family: "segoe-ui-semibold", 'Lato', sans-serif;
+               font-weight: 700;}
+
 
 .bar-graph h6 {text-align: center;
-               font-weight: 600;
+               font-weight: 700;
                font-size: 0.8em;}
 
 .bar-graph p {color:#595959;
