@@ -17,7 +17,7 @@
 
 <!-- HTML FOR THE PLUGIN -->
 <div class="cal-plugin flex-media dir-row-media just-cont-btw-media">
-  <section class="payment flex-media dir-col-media just-cont-cent">
+  <section class="payment flex-media dir-col-media just-cont-cent just-cont-btw-media">
 
     <div>
       <label for="amount"><?php echo get_option('amount_label'); ?></label>
@@ -42,7 +42,6 @@
 
   <section class=" bar-graph flex-media dir-col-media just-cont-btw-media">
       <h3 id="chart_heading"><?php echo get_option('chart_heading'); ?></h3>
-
     <div class="outer-graph">
     	<div class="inner-graph">
 

@@ -1,4 +1,4 @@
-/** {box-sizing: border-box;
+/* * {box-sizing: border-box;
    padding: 0;
    margin: 0;}*/
 
@@ -22,41 +22,35 @@
     /*OVER WRITTING DEFAULT STYLE*/
 
 .cal-plugin .ui-state-default, .ui-widget-content .ui-state-default {border: 2px solid #DEDD52;
-              background: #ffffff;
-              font-weight: normal;
-              color: #454545;}
+ background: #ffffff;
+ font-weight: normal;
+ color: #454545;}
 
 .cal-plugin  .ui-corner-all {border-radius: 100px;}
 
 .cal-plugin .ui-slider-horizontal {height: .2em;}
 
-.cal-plugin  .ui-slider-horizontal .ui-slider-handle {
-  top: -.5em;
-  margin-left: -.6em;
-  left: 0.5%}
+.cal-plugin  .ui-slider-horizontal .ui-slider-handle {top: -.5em;
+                                                      margin-left: -.6em;
+                                                      left: 0.5%}
 
-.cal-plugin  .ui-widget.ui-widget-content {
-  background-color: #D6D6D6;
-  width: 100%;
-  border: none;}
+.cal-plugin  .ui-widget.ui-widget-content {background-color: #D6D6D6;
+                                           width: 100%;
+                                           border: none;}
 
-.cal-plugin .ui-slider .ui-slider-range{
-  border: none;
-  background-color: #DDDD52;}
+.cal-plugin .ui-slider .ui-slider-range{border: none;
+                                        background-color: #DDDD52;}
 
   /*CUSTOM STYLE*/
 
-
- #chart_heading {
-  display: none;
- } 
+ #chart_heading {display: none;}
 
 .cal-plugin .text-green {color: #CCDA52}
 
 
 .cal-plugin {margin: 8%;}
 
-.payment div {margin-bottom: 5rem;}
+.payment div {margin-bottom: 3rem;}
 
 .payment label {display: block;
                 text-align: center;
@@ -80,29 +74,31 @@
 
 #amount {font-size: 2em;}
 
-.payment  p {margin: 5px;
+.payment  p {
+  margin: 5px;
              text-align: center;
              font-size: 1.5em;
              color: #494949;
              font-family: "segoe-ui-semibold", 'Lato', sans-serif;
              font-weight: 700;}
 
-.payment  a {display: inline-block;
-             text-align: center;
-             font-family: "segoe-ui",'Lato', sans-serif;}
-
-.cal-plugin  .button {padding: 10px;
-                      border: none;
-                      background-color: #DDDD52;
-                      color: white;
-                      width: 100%;
-                      text-decoration: none;
-                      box-shadow: none;}
+.payment .button {padding: 10px;
+                     border: none;
+                     background-color: #DDDD52;
+                     color: white;
+                     width: 100%;
+                     text-decoration: none;
+                     box-shadow: none;
+                     margin-top: 30px;
+                     display: inline-block;
+                     text-align: center;
+                     font-family: "segoe-ui",'Lato', sans-serif;}
 
 .fa {color: #CBCBCB;}
 /*BAR GRAPH*/
 
-.bar-graph h3 {margin-bottom: 5px;
+.bar-graph h3 {
+  /*margin-bottom: 5px;*/
                color: #474D5A;
                text-align: center;
                font-size: 1.5em;
@@ -116,16 +112,17 @@
                font-family: "segoe-ui-semibold", 'Lato', sans-serif;
                font-weight: 700;
                font-size: 0.8em;
-               color: #474D5A;}
+               color: #474D5A;
+               margin: 0px;}
 
 .bar-graph p {color: #474D5A;
 	            text-align: center;
               margin: 0em;
               font-size: 0.8em;}
 
-.hidden {opacity: 0;}
+.bar-graph .hidden {opacity: 0;}
 
-.outer-graph {width: 100%;
+.bar-graph .outer-graph {width: 100%;
 							border-bottom: 3px solid #828282;
 							height: 400px;
 							position: relative;
@@ -133,7 +130,7 @@
 							align-items: flex-end;
 							margin: 0 auto;}
 
-.inner-graph {height: 350px;
+.bar-graph .inner-graph {height: 350px;
 							width: 100%;
 							padding: 0 10px;
 							position: relative;
@@ -142,60 +139,58 @@
 							align-items: flex-end;
 							box-sizing: border-box;}
 
-.outer-bar-1 {width: 30%;
-	            height:0%;}
+.bar-graph .outer-bar-1 {width: 30%;
+	                       height:0%;}
 
-.bar-1-title {width:100%;}
+.bar-graph .bar-1-title {width:100%;}
 
-.bar-1-column {width:100%;
-	             background-color: #EEEFA2;
-	             flex-grow: 1;}
+.bar-graph .bar-1-column {width:100%;
+          	              background-color: #EEEFA2;
+          	              flex-grow: 1;}
 
-.outer-bar-2 {width: 30%;
-	            height:0%;}
+.bar-graph .outer-bar-2 {width: 30%;
+	                       height:0%;}
 
-.bar-2-title {width:100%;}
+.bar-graph .bar-2-title {width:100%;}
 
-.bar-2-column {width:100%;
-							 background-color: #e5e5e5;
-	             flex-grow: 1;}
+.bar-graph .bar-2-column {width:100%;
+          				  	 	  background-color: #e5e5e5;
+          	              flex-grow: 1;}
 
-.outer-bar-3 {width: 30%;
-							height:0%;}
+.bar-graph .outer-bar-3 {width: 30%;
+							           height:0%;}
 
-.bar-3-title {width:100%;}
+.bar-graph .bar-3-title {width:100%;}
 
-.bar-3-column {width:100%;
-	             background-color: #e5e5e5;
-	             flex-grow: 1;}
+.bar-graph .bar-3-column {width:100%;
+	                        background-color: #e5e5e5;
+	                        flex-grow: 1;}
 
-.column-p {padding: 25px 0;}
+.bar-graph .column-p {padding-top: 25px;
+                      font-family: "segoe-ui",'Lato', sans-serif;
+                      font-weight: 700;
+                      font-size: 0.9em;}
 
-.title-p {padding-bottom: 10px;
-					font-size: 12px;}
-
-a {padding: 10px 20px;
-	 background-color: #e0e888;
-	 margin-top: 30px;
-	 color: #595959;
-	 text-decoration: none;
-	 display: inline-block;}
-
-.lendified-price {display: none;}
-.comp-1-price {display: none;}
-.comp-2-price {display: none;}
-
-/*POP UP CUSTOM STYLE*/
-
-.ui-widget.ui-widget-content {margin: 10px;}
-
-.ui-widget-shadow {box-shadow: 1px 1px 3px #666666;}
-
-.ui-tooltip-content {font-size: 0.7em;
+.bar-graph .title-p {padding-bottom: 10px;
+					           font-size: 12px;
                      font-family: "segoe-ui",'Lato', sans-serif;
                      font-weight: 700;}
 
-.ui-tooltip {padding: 10px;}
+.bar-graph .lendified-price {display: none;}
+.bar-graph .comp-1-price {display: none;}
+.bar-graph .comp-2-price {display: none;}
+
+/*POP UP CUSTOM STYLE*/
+
+/*.cal-plugin .ui-widget.ui-widget-content {margin: 10px;}*/
+
+.cal-plugin .ui-widget-shadow {box-shadow: 1px 1px 3px #666666;}
+
+.bar-graph .ui-widget-content {color: red;
+  font-weight: 700;
+                        font-family: "segoe-ui",'Lato', sans-serif;}
+
+.cal-plugin .ui-tooltip {padding: 10px;}
 
 /*MEDIA QUERY FOR TABLET AND DESKTOP*/
 
@@ -212,6 +207,7 @@ a {padding: 10px 20px;
 
 /*CUSTOM STYLES FOR MEDIA QUERY*/
 
+.payment div {margin-bottom: 0rem;}
 
 .cal-plugin {margin: 5%;}
 
@@ -232,5 +228,5 @@ a {padding: 10px 20px;
 
 .bar-graph p {font-size: 1em;}
 
-.bar-graph h6 {padding: 0px;}
+.bar-graph h6 {padding: 5px;}
 }
