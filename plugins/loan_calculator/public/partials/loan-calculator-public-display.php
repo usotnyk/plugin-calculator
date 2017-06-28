@@ -32,19 +32,21 @@
     </div>
 
     <div>
-      <label for="total-loan-amount"><?php echo get_option('payment_label'); ?>   <span role="tooltip" class="fa fa-question-circle-o" aria-hidden="true" title="bi-weekly payment"></span> </label>
+
+      <label for="total-loan-amount"><?php echo get_option('payment_label'); ?>   <span role="tooltip" class="fa fa-question-circle-o" aria-hidden="true" title="<?php echo get_option('payment_popup'); ?>"></span> </label>
+
       <p> <span id="minimum-payment"></span> -  <span id="maximum-payment"></span> </p>
       <a href="<?php echo get_option('button_link'); ?>" class="button"><?php echo get_option('button_label'); ?></a>
     </div>
   </section>
 
   <section class=" bar-graph flex-media dir-col-media just-cont-btw-media">
-      <h3><?php echo get_option('chart_heading'); ?></h3>
+      <h3 id="chart_heading"><?php echo get_option('chart_heading'); ?></h3>
 
     <div class="outer-graph">
     	<div class="inner-graph">
 
-    		<div class="outer-bar-1 flex flex-col">
+    		<div class="outer-bar-1 flex dir-col">
     			<div class="bar-1-title">
     				<?php
     					if (strtolower(get_option('bar_1_label')) == 'lendified') {
@@ -59,7 +61,7 @@
     			</div>
     			</div>
 
-    			<div class="outer-bar-2 flex flex-col">
+    			<div class="outer-bar-2 flex dir-col">
       			<div class="bar-2-title">
       				<p class="hidden title-p"><?php echo get_option('bar_2_label'); ?></p>
       			</div>
@@ -68,7 +70,7 @@
       			</div>
     			</div>
 
-    			<div class="outer-bar-3 flex flex-col">
+    			<div class="outer-bar-3 flex dir-col">
       			<div class="bar-3-title">
       				<p class="hidden title-p"><?php echo get_option('bar_3_label'); ?></p>
       			</div>
@@ -80,9 +82,8 @@
     	</div>
     </div>
 
-    <!-- <a href="#" id="change">Click</a> -->
+    <h6><?php echo get_option('chart_label'); ?> <span role="tooltip" class="fa fa-question-circle-o" aria-hidden="true" title="<?php echo get_option('chart_popup'); ?>"></span> </h6>
 
-    <h6><?php echo get_option('chart_label'); ?> <span role="tooltip" class="fa fa-question-circle-o" aria-hidden="true" title="Total interest cost "></span> </h6>
   </section>
 
 </div>
