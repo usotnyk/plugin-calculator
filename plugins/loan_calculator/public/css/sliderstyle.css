@@ -46,7 +46,13 @@
 
   /*CUSTOM STYLE*/
 
+
+ #chart_heading {
+  display: none;
+ } 
+
 .cal-plugin .text-green {color: #CCDA52}
+
 
 .cal-plugin {margin: 8%;}
 
