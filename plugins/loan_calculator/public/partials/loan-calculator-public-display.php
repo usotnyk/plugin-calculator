@@ -14,20 +14,21 @@
 ?>
 <?php
 
+
 $option = get_option('bwp_interest_min');
 
 if (!isset($option) || empty($option)) {
   if(is_user_logged_in()) {
     ?>
 <div class="calculator-warning">
-  <p>The plugin is not configured. Please visit the <a href="<?php echo admin_url().'?page=loan_calculator'; ?>">admin</a> section.</p> 
+  <p>The plugin is not configured. Please visit the <a href="<?php echo admin_url().'?page=loan_calculator'; ?>">admin</a> section.</p>
 </div>
 <?php
   }
 
 } else {?>
 
-  
+
   <!-- This file should primarily consist of HTML with a little bit of PHP. -->
 
   <!-- HTML FOR THE PLUGIN -->
@@ -105,5 +106,3 @@ if (!isset($option) || empty($option)) {
 
 <?php
 };?>
-
-
