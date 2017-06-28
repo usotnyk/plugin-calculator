@@ -288,7 +288,7 @@ function labels() {
 	echo "<div class='flex flex-align-center flex-space-between'>";
 	echo "<label class='sub-label' for='chart_heading'>Chart Heading</label>";
 	echo "<input type='button' id='amount_placeholder' value='Insert' />";
-	echo "<input type='text' name='chart_heading' value='".$chart_heading."'>";
+	echo "<input type='text' id='txt' name='chart_heading' value='".$chart_heading."'>";
 	echo "</div>";
 
 	create_text_field('chart_label', 'Chart Label');

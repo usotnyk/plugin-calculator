@@ -23,7 +23,7 @@ jQuery(document).ready(function($) {
       displayBiWeeklyPayment(recalculate());
     },
     stop:  function() {
-      animateBars();
+      animateBars(recalculate());
       displayChartCosts(recalculate());
     }
   });
@@ -40,7 +40,7 @@ jQuery(document).ready(function($) {
       displayBiWeeklyPayment(recalculate());
     },
     stop: function() {
-      animateBars();
+      animateBars(recalculate());
       displayChartCosts(recalculate());
     }
   });
@@ -48,10 +48,11 @@ jQuery(document).ready(function($) {
 
   //Chart animations
 
-  function animateBarsUp() {
-    $('.outer-bar-1').delay(100).animate({'height':'40%'},800);
-    $('.outer-bar-2').delay(200).animate({'height': '70%'},800);
-    $('.outer-bar-3').delay(300).animate({'height': '100%'},800);
+  function animateBarsUp(paymentInformation) {
+    $('.outer-bar-1').delay(100).animate({'height': paymentInformation.barOneHeight + '%'},800);
+    //$('.outer-bar-1').delay(100).animate({'height':'40%'},800);
+    $('.outer-bar-2').delay(200).animate({'height': paymentInformation.barTwoHeight + '%'},800);
+    $('.outer-bar-3').delay(300).animate({'height': paymentInformation.barThreeHeight + '%'},800);
     $('.hidden').delay(500).animate({'opacity': '1'},800);
     $('.lendified-price').delay(100).fadeIn(800);
     $('.comp-1-price').delay(200).fadeIn(800);
@@ -63,9 +64,11 @@ jQuery(document).ready(function($) {
     $('.comp-1-price').fadeOut(200).delay(200).fadeIn(800);
     $('.comp-2-price').fadeOut(200).delay(300).fadeIn(800);
     $('.hidden').animate({'opacity': '0'},0).delay(500).animate({'opacity': '1'},800);
-    $('.outer-bar-1').animate({'height': '0%'},200).delay(100).animate({'height': '40%'},800);
-    $('.outer-bar-2').animate({'height': '0%'},200).delay(200).animate({'height': '70%'},800);
-    $('.outer-bar-3').animate({'height': '0%'},200).delay(300).animate({'height': '100%'},800);
+    $('.outer-bar-1').animate({'height': '0%'},200).delay(100).animate({'height': paymentInformation.barOneHeight + '%'},800);
+    //$('.outer-bar-1').animate({'height': '0%'},200).delay(100).animate({'height': '40%'},800);
+
+    $('.outer-bar-2').animate({'height': '0%'},200).delay(200).animate({'height': paymentInformation.barTwoHeight + '%'},800);
+    $('.outer-bar-3').animate({'height': '0%'},200).delay(300).animate({'height': paymentInformation.barThreeHeight + '%'},800);
   }
 
   //Pop up
@@ -112,7 +115,7 @@ jQuery(document).ready(function($) {
     var amountValue = jQuery("#slider-amount").slider("value");
     var termValue = jQuery("#slider-term").slider("value");
     var paymentInformation = getPaymentInformation(amountValue, termValue);
-    //paymentInformation.inspect();
+    paymentInformation.inspect();
     return paymentInformation;
   }
 
@@ -127,6 +130,11 @@ jQuery(document).ready(function($) {
     paymentInformation.barTwoInterestCost = LoanCalculator.calculateInterestCost(loan, wp_rates.barTwoInterest);
     paymentInformation.barThreeInterestCost = LoanCalculator.calculateInterestCost(loan, wp_rates.barThreeInterest);
     paymentInformation.interestSavings = paymentInformation.barThreeInterestCost - paymentInformation.barOneInterestCost;
+
+    //bars height
+    paymentInformation.barThreeHeight = 100;
+    paymentInformation.barOneHeight = (paymentInformation.barThreeHeight * paymentInformation.barOneInterestCost)/paymentInformation.barThreeInterestCost;
+    paymentInformation.barTwoHeight = (paymentInformation.barThreeHeight * paymentInformation.barTwoInterestCost)/paymentInformation.barThreeInterestCost;
 
     paymentInformation.inspect = function() {
       console.log(this);
@@ -170,7 +178,10 @@ function replaceIterestSavingPlaceholder() {
 //On page load
   replaceIterestSavingPlaceholder();
   displayPaymentAndCost(recalculate());
-  animateBarsUp();
+  animateBarsUp(recalculate());
+
+
+
 
 });
 
