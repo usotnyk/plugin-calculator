@@ -49,8 +49,8 @@
     		<div class="outer-bar-1 flex dir-col">
     			<div class="bar-1-title">
     				<?php
-    					if (get_option('bar_1_label') == 'Lendified') {
-    						echo "<img class='hidden title-p' src='https://www.lendified.com/wp-content/uploads/2015/07/lendified-logo-dark@2x.png'>";
+    					if (strtolower(get_option('bar_1_label')) == 'lendified') {
+    						echo "<img class='hidden title-p' src='".plugin_dir_url('')."loan_calculator/public/assets/lendified-logo.png'>";
     					} else {
       						echo "<p class='hidden title-p'>".get_option('bar_1_label')."</p>";
     					}

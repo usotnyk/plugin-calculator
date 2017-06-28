@@ -19,22 +19,26 @@
     <form action="options.php" method="post">
         <?php 
         	settings_fields('loan-calculator-settings-group');
+        	echo "<div class='flex flex-space-between padding-top-md'>";
             echo "<div class='settings-group width-50'>";
             do_settings_sections('interest_rates');
             echo "</div>";
-        	echo "<div class='settings-group'>";
-        	do_settings_sections('loan_amounts');
-        	echo "</div>";
-            echo "<div class='settings-group'>";
-        	do_settings_sections('loan_terms');
-            echo "</div>";
-            echo "<div class='settings-group'>";
-            do_settings_sections('pop_ups');
-            echo "</div>";
-            echo "<div class='settings-group'>";
+            echo "<div class='settings-group width-50'>";
             do_settings_sections('labels');
             echo "</div>";
-            echo "<div class='settings-group'>";
+            echo "</div>";
+            echo "<div class='flex flex-space-between'>";
+        	echo "<div class='settings-group width-25'>";
+        	do_settings_sections('loan_amounts');
+        	echo "</div>";
+            echo "<div class='settings-group width-25'>";
+        	do_settings_sections('loan_terms');
+            echo "</div>";
+            echo "<div class='settings-group width-50'>";
+            do_settings_sections('pop_ups');
+            echo "</div>";
+            echo "</div>";
+            echo "<div class='settings-group width-50''>";
             do_settings_sections('links');
             echo "</div>";
         	submit_button('Save Settings');
