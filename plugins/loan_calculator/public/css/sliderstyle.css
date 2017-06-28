@@ -174,12 +174,12 @@
 .title-p {padding-bottom: 10px;
 					font-size: 12px;}
 
-a {padding: 10px 20px;
+/*a {padding: 10px 20px;
 	 background-color: #e0e888;
 	 margin-top: 30px;
 	 color: #595959;
 	 text-decoration: none;
-	 display: inline-block;}
+	 display: inline-block;}*/
 
 .lendified-price {display: none;}
 .comp-1-price {display: none;}
@@ -196,6 +196,11 @@ a {padding: 10px 20px;
                      font-weight: 700;}
 
 .ui-tooltip {padding: 10px;}
+.calculator-warning a {
+  color: #CCDA52;
+  text-decoration: none;
+  padding: 50px 0;
+}
 
 /*MEDIA QUERY FOR TABLET AND DESKTOP*/
 

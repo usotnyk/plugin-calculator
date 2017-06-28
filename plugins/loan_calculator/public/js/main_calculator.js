@@ -87,7 +87,6 @@ jQuery(document).ready(function($) {
         var result = loan.amount / discountFactor;
         return result;
       } else {
-        console.log("discount factor can't equal to 0!");
         return NaN
       }
     },

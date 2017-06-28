@@ -95,39 +95,75 @@ function loan_calculator_settings() {
 //Functions for html admin input models
 function create_number_field ($id, $label) {
 	$val = esc_attr( get_option($id) );
-	echo "<div class='flex flex-align-center flex-space-between'>";
-	echo "<label class='sub-label' for='".$id."'>".$label."</label>";
-	echo "<input type='number' step='any' name='".$id."' value='".$val."'/>";
-	echo "</div>";
+	echo "
+		<div class='flex flex-align-center flex-space-between'>
+			<label class='sub-label' for='".$id."'>".$label."</label>
+			<input type='number' step='any' name='".$id."' value='".$val."' required/>
+		</div>
+	";
 }
+
+function create_number_field_no_space ($id, $label) {
+	$val = esc_attr( get_option($id) );
+	echo "
+		<div class='flex flex-align-center'>
+			<label class='sub-label' for='".$id."'>".$label."</label>
+			<input type='number' step='any' name='".$id."' value='".$val."' required/>
+		</div>
+	";
+}
+
 function create_text_field ($id, $label) {
 	$val = esc_attr( get_option($id) );
-	echo "<div class='flex flex-align-center flex-space-between'>";
-	echo "<label class='sub-label' for='".$id."'>".$label."</label>";
-	echo "<input type='text' name='".$id."' value='".$val."'>";
-	echo "</div>";
+	echo "
+		<div class='flex flex-align-center flex-space-between'>
+			<label class='sub-label' for='".$id."'>".$label."</label>
+			<input type='text' name='".$id."' value='".$val."'>
+		</div>
+	";
 }
 
 function create_text_number_field ($option_label, $text_label, $number_label, $text_id, $number_id) {
 	$text_val = esc_attr( get_option($text_id) );
 	$number_val = esc_attr( get_option($number_id) );
-	echo "<div class='flex flex-align-center flex-space-between'>";
-	echo "<p class='padding-right-lrg'>".$option_label."</p>";
-	echo "<div class='flex flex-align-center'>";
-	echo "<label class='sub-label' for='".$text_id."'>".$text_label."</label>";
-	echo "<input type='text' name='".$text_id."' value='".$text_val."' class='margin-right-sm'/>";
-	echo "<label class='sub-label' for='".$number_id."'>".$number_label."</label>";
-	echo "<input type='number' step='any' name='".$number_id."' value='".$number_val."'/>".' '."%";
-	echo "</div>";
-	echo "</div>";
+	echo "
+		<div class='flex flex-align-center flex-space-between'>
+			<p class='padding-right-lrg'>".$option_label."</p>
+			<div class='flex flex-align-center'>
+				<label class='sub-label' for='".$text_id."'>".$text_label."</label>
+				<input type='text' name='".$text_id."' value='".$text_val."' class='margin-right-xs'/>
+				<label class='sub-label' for='".$number_id."'>".$number_label."</label>
+				<input type='number' step='any' name='".$number_id."' value='".$number_val."' required/>%
+			</div>
+		</div>
+	";
 }
 
 function create_text_area ($id, $label) {
-	echo "<div class='flex flex-space-between'>";
-	echo "<label class='sub-label' for='".$id."'>".$label."</label>";
 	$text_val = esc_attr( get_option($id) );
-	echo "<textarea name='".$id."' rows='4' cols='50'>".$text_val."</textarea>";
-	echo "</div>";
+	echo "
+		<div class='flex flex-space-between'>
+			<label class='sub-label' for='".$id."'>".$label."</label>
+			<textarea name='".$id."' rows='4' cols='50'>".$text_val."</textarea>
+		</div>
+	";
+}
+
+function create_double_text_field ($text_1_label, $text_1_id, $text_2_label, $text_2_id) {
+	$text_1_val = esc_attr( get_option($text_1_id) );
+	$text_2_val = esc_attr( get_option($text_2_id) );
+	echo "
+		<div class='flex flex-align-center flex-space-between'>
+			<div>
+				<label for='".$text_1_id."'>".$text_1_label."</label>
+				<input type='number' step='any' name='".$text_1_id."' value='".$text_1_val."' required/>
+			</div>
+			<div>
+				<label for='".$text_2_id."'>".$text_2_label."</label>
+				<input type='number' step='any' name='".$text_2_id."' value='".$text_2_val."' required/>
+			</div>
+		</div>
+	";
 }
 
 // Loan Amount HTML function
@@ -205,18 +241,21 @@ function loan_terms_content() {
 function interest_content() {
 
 	echo "<p class='bold'>Bi-Weekly Payment Calculation</p>";
+	//create_double_text_field('Min','bwp_interest_min','Max','bwp_interest_max');
+	create_number_field('bwp_interest_min','Min');
+	create_number_field('bwp_interest_max','Max');
 
-	$interest_rate_min = esc_attr( get_option('bwp_interest_min') );
-	echo "<div class='flex flex-align-center'>";
-	echo "<label for='bwp_interest_min'>Min</label>";
-	echo "<input type='number' step='any' name='bwp_interest_min' value='".$interest_rate_min."'/>";
-	echo "</div>";
+	// $interest_rate_min = esc_attr( get_option('bwp_interest_min') );
+	// echo "<div class='flex flex-align-center'>";
+	// echo "<label for='bwp_interest_min'>Min</label>";
+	// echo "<input type='number' step='any' name='bwp_interest_min' value='".$interest_rate_min."' required/>";
+	// echo "</div>";
 
-	$interest_rate_max = esc_attr( get_option('bwp_interest_max') );
-	echo "<div class='flex flex-align-center'>";
-	echo "<label for='bwp_interest_max'>Max</label>";
-	echo "<input type='number' step='any' name='bwp_interest_max' value='".$interest_rate_max."'/>";
-	echo "</div>";
+	// $interest_rate_max = esc_attr( get_option('bwp_interest_max') );
+	// echo "<div class='flex flex-align-center'>";
+	// echo "<label for='bwp_interest_max'>Max</label>";
+	// echo "<input type='number' step='any' name='bwp_interest_max' value='".$interest_rate_max."' required/>";
+	// echo "</div>";
 
 	echo "<p class='bold'>Chart Calculation</p>";
 
@@ -285,13 +324,24 @@ function labels() {
 	create_text_field('term_label', 'Term Length');
 	create_text_field('payment_label', 'Bi-Weekly Pop-Up');
 	create_text_field('button_label', 'Button');
-	// create_text_area('chart_heading', 'Chart Heading');
-
 	$text_val = esc_attr( get_option('chart_heading') );
-	echo "<div class='flex flex-space-between'>";
-	echo "<label class='sub-label' for='chart_heading'>Chart Heading</label>";
-	echo "<textarea name='chart_heading' rows='4'>".$text_val."</textarea>";
-	echo "</div>";
+	echo "
+		<div class='flex flex-space-between'>
+			<div class='flex flex-col flex-2 sub-label'>
+				<label class='flex-initial' for='chart_heading'>Chart Heading</label>
+				<p class='instructions'>Click insert to add savings amount at curser position.</p>
+				<input class='flex-initial' type='button' id='amount_placeholder' value='Insert' />
+			</div>
+			<div class='flex-5'>
+				<textarea id='txt' class='flex-initial' name='chart_heading' rows='4' cols='50'>".$text_val."</textarea>
+			</div>
+		</div>
+	";
+	// $text_val = esc_attr( get_option('chart_heading') );
+	// echo "<div class='flex flex-space-between'>";
+	// echo "<label class='sub-label' for='chart_heading'>Chart Heading</label>";
+	// echo "<textarea name='chart_heading' rows='4'>".$text_val."</textarea>";
+	// echo "</div>";
 
 	// $chart_heading = esc_attr( get_option('chart_heading') );
 	// echo "<div class='flex flex-align-center flex-space-between'>";

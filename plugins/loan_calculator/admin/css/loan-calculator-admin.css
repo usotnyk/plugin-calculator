@@ -7,6 +7,13 @@ input[type="text"], input[type="number"], textarea {
 	flex: 5;
 	margin: .3rem 0;
 }
+input[type="button"] {
+	max-width: 100px;
+}
+
+textarea {
+	width: 100%;
+}
 
 label { 
 	padding-right: 2rem;
@@ -14,6 +21,11 @@ label {
 }
 input {
 	margin: .3rem 0;
+}
+
+h2 {
+	border-bottom: 1px solid #848484;
+	padding-bottom: 10px;
 }
 
 .settings-group {
@@ -29,6 +41,15 @@ input {
 }
 .flex {
 	display: flex;
+}
+.flex-2 {
+	flex: 2;
+}
+.flex-5 {
+	flex: 5;
+}
+.flex-col {
+	flex-direction: column;
 }
 .flex-end {
 	justify-content: flex-end;
@@ -50,6 +71,9 @@ input {
 }
 .margin-right-sm {
 	margin-right: 2rem;
+}
+.margin-right-xs {
+	margin-right: 1rem;
 }
 
 .width-25 {
@@ -75,13 +99,20 @@ input {
 	display: inline-block;
 	margin: 0;
 }
-h2 {
-	border-bottom: 1px solid #848484;
-	padding-bottom: 10px;
-}
+
 .bold {
 	font-weight: bold;
 }
-.padding-top-md {
-	padding-top: 30px;
+.padding-top-sm {
+	padding-top: 15px;
+}
+.instructions {
+	font-size: 10px;
+	padding-right: 20px;
+	margin: 5px 0;
+	color: #777777;
+	font-style: italic;
+}
+.flex-initial {
+	flex: initial;
 }
