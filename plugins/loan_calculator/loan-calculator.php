@@ -107,4 +107,15 @@ function generate_shortcode(){
 }
 add_shortcode('loan-calculator', 'generate_shortcode');
 
+function unconfigured_lendified_plugin_notice() {
+
+    $option = get_option('bwp_interest_min');
+    if (!isset($option) || empty($option)) {
+    $class = 'notice notice-info';
+    $message = __( "Loan Calculator successfully activated, click <a href='admin.php?page=loan_calculator'>here</a> to configure your settings.", "sample-text-domain" );
+
+    printf( '<div class="%1$s"><p>%2$s</p></div>', esc_attr( $class ), $message); 
+    }
+}
+add_action( 'admin_notices', 'unconfigured_lendified_plugin_notice' );
 ?>
