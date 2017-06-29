@@ -250,8 +250,11 @@
   padding: 10px;
 }
 /*MEDIA QUERY FOR TABLET AND DESKTOP*/
+<<<<<<< HEAD
 
-@media screen and (min-device-width: 600px) {
+=======
+>>>>>>> development
+@media screen and (min-width: 600px) {
   /*FLEX*/
   .flex-media {
     display: flex;

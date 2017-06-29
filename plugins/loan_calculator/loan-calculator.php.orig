@@ -15,7 +15,11 @@
  * @wordpress-plugin
  * Plugin Name:       Loan Calculator
  * Plugin URI:        http://redacademy.com/
- * Description:       This plugin will allow you to add a loan calculator to your site where ever you'd like. You can customize the colors, silder ranges, pop-up content and interest rate percentages. Click "Testified" on the left hand menu to get started.
+<<<<<<< HEAD
+ * Description:       This plugin will allow you to add a loan calculator to any page on your site. You can customize the interest rates, slider ranges, labels and pop-up content. Click "Loan Calculator" on the left hand menu to get started.
+=======
+ * Description:       This plugin will allow you to add a loan calculator to any page on your site. You can customize the interest rates, slider ranges, labels and pop-up content. Click “Loan Calculator” on the left hand menu to get started.
+>>>>>>> development
  * Version:           1.0.0
  * Author:            Red Academy
  * Author URI:        http://redacademy.com/
