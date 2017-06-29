@@ -126,7 +126,7 @@ class Loan_Calculator {
 			wp_enqueue_script ('jquery', 'https://code.jquery.com/jquery-1.12.4.js', array('jquery'), 3.3, true);
 			wp_enqueue_script ('jquery-ui-js', 'https://code.jquery.com/ui/1.12.1/jquery-ui.js', array('jquery'), 3.3, true);
 			wp_enqueue_script ('jquery-ui-touch-punch', 'https://cdnjs.cloudflare.com/ajax/libs/jqueryui-touch-punch/0.2.3/jquery.ui.touch-punch.min.js', array('jquery'), 3.3, true);
-			wp_enqueue_script ('main-calculator-js', plugins_url('loan_calculator/public/js/') . 'main_calculator.js');
+			wp_enqueue_script ('main-calculator-js', plugins_url('loan_calculator/public/js/') . 'loan-calculator-public.js');
 		}
 
 		$this->loader = new Loan_Calculator_Loader();
