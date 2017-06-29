@@ -33,7 +33,7 @@ if (!isset($option) || empty($option)) {
 
   <!-- HTML FOR THE PLUGIN -->
   <div class="cal-plugin flex-media dir-row-media just-cont-btw-media">
-    <section class="payment flex-media dir-col-media just-cont-cent">
+    <section class="payment flex-media dir-col-media just-cont-cent just-cont-btw-media">
 
       <div>
         <label for="amount"><?php echo get_option('amount_label'); ?></label>
@@ -48,11 +48,10 @@ if (!isset($option) || empty($option)) {
       </div>
 
       <div>
-
         <label for="total-loan-amount"><?php echo get_option('payment_label'); ?>   <span role="tooltip" class="fa fa-question-circle-o" aria-hidden="true" title="<?php echo get_option('payment_popup'); ?>"></span> </label>
 
         <p> <span id="minimum-payment"></span> -  <span id="maximum-payment"></span> </p>
-        <a href="<?php echo get_option('button_link'); ?>" class="button"><?php echo get_option('button_label'); ?></a>
+        <a href="<?php echo get_option('button_link'); ?>" class="button button-display"><?php echo get_option('button_label'); ?></a>
       </div>
     </section>
 
@@ -99,6 +98,8 @@ if (!isset($option) || empty($option)) {
       </div>
 
       <h6><?php echo get_option('chart_label'); ?> <span role="tooltip" class="fa fa-question-circle-o" aria-hidden="true" title="<?php echo get_option('chart_popup'); ?>"></span> </h6>
+
+      <a href="<?php echo get_option('button_link'); ?>" class="button button-display-bottom"><?php echo get_option('button_label'); ?></a>
 
     </section>
 
