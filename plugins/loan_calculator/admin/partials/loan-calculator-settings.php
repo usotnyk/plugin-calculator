@@ -16,7 +16,6 @@ function loan_calculator_settings() {
 	register_setting( 'loan-calculator-settings-group', 'loan_term_step');
 	register_setting( 'loan-calculator-settings-group', 'loan_term_default');
 
-
 	// Settings for interest rates
 	register_setting( 'loan-calculator-settings-group', 'bwp_interest_min');
 	register_setting( 'loan-calculator-settings-group', 'bwp_interest_max');
@@ -42,7 +41,6 @@ function loan_calculator_settings() {
 
 	// Misc
 	register_setting( 'loan-calculator-settings-group', 'button_link');
-
 
 	// Loan amount settings section
 	add_settings_section(
