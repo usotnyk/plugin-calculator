@@ -55,7 +55,7 @@ if (!isset($option) || empty($option)) {
       </div>
     </section>
 
-    <section class=" bar-graph flex-media dir-col-media just-cont-btw-media">
+    <section class="bar-graph flex-media dir-col-media just-cont-btw-media">
         <h3 id="chart_heading"><?php echo get_option('chart_heading'); ?></h3>
 
       <div class="outer-graph">

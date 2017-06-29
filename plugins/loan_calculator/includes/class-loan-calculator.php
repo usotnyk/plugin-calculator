@@ -75,6 +75,7 @@ class Loan_Calculator {
 		$this->set_locale();
 		$this->define_admin_hooks();
 		$this->define_public_hooks();
+		$this->enqueue_scripts();
 		$this->localize_settings();
 	}
 
@@ -118,16 +119,6 @@ class Loan_Calculator {
 		 * side of the site.
 		 */
 		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'public/class-loan-calculator-public.php';
-
-		if(!is_admin()){
-			wp_enqueue_style ('jquery-ui-css', 'https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css');
-			wp_enqueue_style ('lato-google-font', 'https://fonts.googleapis.com/css?family=Lato:700');
-			wp_enqueue_style ('font-awesome', 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css');
-			wp_enqueue_script ('jquery', 'https://code.jquery.com/jquery-1.12.4.js', array('jquery'), 3.3, true);
-			wp_enqueue_script ('jquery-ui-js', 'https://code.jquery.com/ui/1.12.1/jquery-ui.js', array('jquery'), 3.3, true);
-			wp_enqueue_script ('jquery-ui-touch-punch', 'https://cdnjs.cloudflare.com/ajax/libs/jqueryui-touch-punch/0.2.3/jquery.ui.touch-punch.min.js', array('jquery'), 3.3, true);
-			wp_enqueue_script ('main-calculator-js', plugins_url('loan_calculator/public/js/') . 'loan-calculator-public.js');
-		}
 
 		$this->loader = new Loan_Calculator_Loader();
 
@@ -179,6 +170,26 @@ class Loan_Calculator {
 
 		$this->loader->add_action( 'wp_enqueue_scripts', $plugin_public, 'enqueue_styles' );
 		$this->loader->add_action( 'wp_enqueue_scripts', $plugin_public, 'enqueue_scripts' );
+
+	}
+
+	/**
+	 * Enqueuing scripts and styles for plugin.
+	 *
+	 * @since    1.0.0
+	 * @access   private
+	 */
+	private function enqueue_scripts() {
+
+		if(!is_admin()){
+			wp_enqueue_style ('jquery-ui-css', 'https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css');
+			wp_enqueue_style ('lato-google-font', 'https://fonts.googleapis.com/css?family=Lato:700');
+			wp_enqueue_style ('font-awesome', 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css');
+			wp_enqueue_script ('jquery', 'https://code.jquery.com/jquery-1.12.4.js', array('jquery'), 3.3, true);
+			wp_enqueue_script ('jquery-ui-js', 'https://code.jquery.com/ui/1.12.1/jquery-ui.js', array('jquery'), 3.3, true);
+			wp_enqueue_script ('jquery-ui-touch-punch', 'https://cdnjs.cloudflare.com/ajax/libs/jqueryui-touch-punch/0.2.3/jquery.ui.touch-punch.min.js', array('jquery'), 3.3, true);
+			wp_enqueue_script ('main-calculator-js', plugins_url('loan_calculator/public/js/') . 'main-calculator.js');
+		}
 
 	}
 

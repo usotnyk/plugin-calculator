@@ -112,6 +112,10 @@
   font-family: "segoe-ui", 'Lato', sans-serif;
 }
 
+.button:visited, .button:active {
+  color: white;
+}
+
 .button-display {
   display: none;
 }
@@ -126,6 +130,8 @@
   color: #CBCBCB;
 }
 /*BAR GRAPH CUSTOM STYLE*/
+
+#chart_heading {display: none;}
 .bar-graph h3 {
   /*margin-bottom: 5px;*/
   color: #474D5A;
